@@ -159,3 +159,8 @@ https://<your-login>.github.io/<repo-name>/
 для некоммерческого портфолио.
 **Шрифты:** Playfair Display + Source Serif 4 + Inter + JetBrains Mono
 (Google Fonts, Open Font License).
+
+## Managed by Mavis (M3)
+
+Этот лендинг обслуживается Mavis (агент M3, встроен в MiniMax Code). Push-доступ к репо через PAT в ~/.github_token. Для внесения изменений: правишь локальный index.html в C:\Users\DELL\.minimax\workspace\portfolio-prep\landing\, далее git add && git commit && git push от лица Mavis. Перед любым публичным изменением — спросить владельца (Антон Бычковский).
+
