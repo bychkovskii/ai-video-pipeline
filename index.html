@@ -2,11 +2,11 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>Антон Бычковский — AI Video Production</title>
+<title>CONTENT-FACTORY — The pipeline</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="AI Video Production. 3-layer pipeline from brief to master. Unreal Engine 5.8 + Hailuo H3 + DaVinci Resolve. Solo operator, Stavropol / Remote.">
-<meta property="og:title" content="Антон Бычковский — AI Video Production">
-<meta property="og:description" content="3-layer pipeline · 14 stages · 3 gates · Unreal Engine 5.8 + Hailuo H3 + DaVinci Resolve">
+<meta name="description" content="CONTENT-FACTORY. The pipeline. AI video production in three layers, thirteen stages, three client gates. Unreal Engine + MiniMax H3 + DaVinci Resolve. By Anton Bychkovsky, content producer, Stavropol / Remote.">
+<meta property="og:title" content="CONTENT-FACTORY — The pipeline">
+<meta property="og:description" content="The pipeline. Three layers, thirteen stages, three client gates. Unreal Engine + MiniMax H3 + DaVinci Resolve.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +19,17 @@
     --ink-3: #9e9e9e;
     --soft: #6a6a6a;
     --rule: #ffffff;
-    --rule-2: #3a3a3a;
+    --rule-2: #2a2a2a;
+    --rule-3: #161616;
     --paper: #000000;
     --panel: #0a0a0a;
+    --panel-2: #050505;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   html, body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', 'Georgia', serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   body { overflow-x: hidden; }
-  img, video { display: block; max-width: 100%; height: auto; filter: grayscale(100%) contrast(1.05); }
+  img, video { display: block; max-width: 100%; height: auto; filter: grayscale(100%) contrast(1.05); background: #050505; }
   ::selection { background: var(--ink); color: var(--paper); }
 
   /* Language switcher */
@@ -45,74 +48,167 @@
   /* Masthead */
   .masthead { padding: 56px 32px 0; max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
   .masthead .brand { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); }
+  .nav { display: flex; gap: 24px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; }
+  .nav a { color: var(--ink-3); text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; }
+  .nav a:hover { color: var(--ink); border-color: var(--ink-3); }
 
-  /* Hero */
-  .hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden; margin-top: 24px; }
-  .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; z-index: 0; }
-  .hero .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%); z-index: 1; }
-  .hero .content { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; padding: 64px 32px 80px; width: 100%; }
-  .hero .kicker { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
-  .hero .kicker::before { content: ""; display: inline-block; width: 36px; height: 1px; background: var(--ink); }
-  .hero h1 { font-family: 'Playfair Display', 'Georgia', serif; font-weight: 900; font-style: italic; font-size: clamp(64px, 12vw, 184px); line-height: 0.86; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 24px; }
-  .hero .deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.32; color: var(--ink-2); max-width: 38ch; margin-bottom: 32px; }
-  .hero .meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); display: flex; gap: 24px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--rule-2); }
+  /* Hero (CONTENT-FACTORY as title, byline as small print) */
+  .hero { padding: 80px 0 100px; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+  .hero .eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 40px; display: flex; align-items: center; gap: 14px; }
+  .hero .eyebrow::before { content: ""; display: inline-block; width: 36px; height: 1px; background: var(--ink-3); }
+  .hero h1 { font-family: 'Playfair Display', 'Georgia', serif; font-weight: 900; font-style: normal; font-size: clamp(56px, 11vw, 156px); line-height: 0.92; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 16px; text-transform: uppercase; }
+  .hero h2.deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 28px; }
+  .hero .sub { font-family: 'Source Serif 4', serif; font-style: italic; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.4; color: var(--ink-2); margin-bottom: 48px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .hero .meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; padding-top: 24px; border-top: 1px solid var(--rule-2); }
   .hero .meta strong { color: var(--ink); font-weight: 700; }
 
-  /* Section header */
-  .sec-head { padding: 80px 0 24px; max-width: 1180px; margin: 0 auto; }
-  .sec-num { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: clamp(80px, 10vw, 140px); line-height: 0.85; color: var(--ink); letter-spacing: -0.03em; }
+  /* Pipeline intro (3 cards, 2 gates) */
+  .intro { padding: 32px 0 32px; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+  .intro-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--rule-2); }
+  .intro-head .fig { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); }
+  .intro-head .read { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .i-col { border: 1px solid var(--ink); padding: 28px 28px 32px; background: var(--panel); display: flex; flex-direction: column; }
+  .i-col .lbl { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .i-col .name { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 36px; line-height: 1; color: var(--ink); margin-bottom: 18px; }
+  .i-col .desc { font-family: 'Source Serif 4', serif; font-size: 13px; line-height: 1.6; color: var(--ink-2); margin-bottom: 24px; flex: 1; }
+  .i-col .stats { padding-top: 16px; border-top: 1px solid var(--rule-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); line-height: 1.85; }
+  .i-col .stats .v { color: var(--ink); font-weight: 700; }
+  .i-col .i-stack { margin: -4px 0 20px; padding: 14px 0 0; border-top: 1px solid var(--rule-2); display: flex; flex-direction: column; gap: 0; }
+  .i-col .i-stack-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .i-col .i-stack-label + .i-stack-label { margin-top: 12px; }
+  .i-col .i-stack ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
+  .i-col .i-stack li { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink); padding-left: 12px; position: relative; font-weight: 700; line-height: 1.4; }
+  .i-col .i-stack li::before { content: "—"; position: absolute; left: 0; color: var(--ink-3); }
+  .i-col .i-stack li.highlight { font-size: 12px; padding-top: 1px; padding-bottom: 4px; letter-spacing: 0.01em; }
+  .i-col .i-stack li.highlight::before { content: "▪"; color: var(--ink); font-size: 9px; top: 4px; }
+
+  /* Pipeline layers (vertical scroll) */
+  .pipeline { }
+  .layer { padding: 56px 0; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; border-bottom: 1px solid var(--rule-3); }
+  .layer-head { display: grid; grid-template-columns: 248px 1fr; gap: 0; margin-bottom: 56px; align-items: center; }
+  .layer-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(96px, 11vw, 156px); line-height: 0.8; color: var(--ink); letter-spacing: -0.04em; text-align: center; }
+  .layer-info .eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  .layer-info h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 52px); line-height: 1; color: var(--ink); margin-bottom: 18px; }
+  .layer-info .lede { font-family: 'Source Serif 4', serif; font-style: italic; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.4; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .layer-body { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1116px; }
+  .layer-body p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .layer-body em { color: var(--ink); font-style: italic; }
+  .layer-body strong { color: var(--ink); font-weight: 700; }
+
+  /* Magazine row (image + text, chess pattern) */
+  .mag-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin: 72px 0; align-items: center; max-width: 1116px; }
+  .mag-row .mag-img { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--panel); border: 1px solid var(--rule-2); }
+  .mag-row .mag-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mag-row .mag-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .mag-row .mag-text h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; color: var(--ink); margin-bottom: 18px; }
+  .mag-row .mag-text p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin: 0; }
+  .mag-row--reverse .mag-img { order: 2; }
+  .mag-row--reverse .mag-text { order: 1; }
+
+  /* Detail control block (3 images in row, text below) */
+  .detail-block { margin: 80px 0; max-width: 1116px; }
+  .detail-block .mag-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .detail-block h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; color: var(--ink); margin-bottom: 32px; }
+  .detail-triptych { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .detail-frame { margin: 0; }
+  .detail-frame img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 1px solid var(--rule-2); display: block; background: var(--panel); }
+  .detail-frame figcaption { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; text-align: center; }
+  .detail-block p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin: 0; }
+
+  /* Camera block (heading + videos + text + table) */
+  .camera-block { margin: 80px 0; max-width: 1116px; }
+
+  /* Full intro text under hero video (matches .lede size) */
+  .layer-body--full p { font-family: 'Source Serif 4', serif; font-style: italic; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.4; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin: 0; }
+  .camera-block .mag-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .camera-block h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; color: var(--ink); margin-bottom: 32px; }
+  .camera-block .cam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 32px; }
+  .camera-block p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin: 32px 0 0; }
+  .camera-block .cam-specs { margin-top: 40px; }
+
+  /* Gate separator (visual break between 3D pre-vis and video generation) */
+  .gate-separator { margin: 96px 0 48px; max-width: 1116px; text-align: center; }
+  .gate-separator .mag-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  .gate-separator h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(28px, 3vw, 42px); line-height: 1; color: var(--ink); }
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule-2); margin: 32px 0; }
+  .stages .cell { padding: 10px 16px; border-right: 1px solid var(--rule-2); display: flex; flex-direction: column; align-items: flex-start; }
+  .stages .cell:nth-child(4n) { border-right: 0; }
+  .stages .num { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--ink-3); letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stages .lbl { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+
+  /* Layer callout (AI+классика, На выходе) */
+  .layer-callout { margin: 48px auto; padding: 36px 40px; border-top: 1px solid var(--rule-2); max-width: 1116px; }
+  .layer-callout .callout-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+  .layer-callout .callout-title { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(28px, 3.2vw, 40px); line-height: 1; color: var(--ink); margin-bottom: 20px; }
+  .layer-callout p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); margin-bottom: 14px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .layer-callout p:last-child { margin-bottom: 0; }
+  .layer-callout p em { color: var(--ink); font-style: italic; }
+
+  /* Pre-prod 5 steps */
+  .layer-body .step { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--rule-2); }
+  .layer-body .step:last-child { border-bottom: 1px solid var(--rule-2); }
+  .layer-body .step-num { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--ink); padding-top: 6px; }
+  .layer-body .step-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .layer-body .step-body h4 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); line-height: 1.15; color: var(--ink); margin-bottom: 12px; }
+  .layer-body .step-body p { font-family: 'Source Serif 4', serif; font-size: 15px; line-height: 1.72; color: var(--ink-2); margin-bottom: 0; }
+
+  /* Scenario example block (код режиссёрского сценария) */
+  .scenario-example { margin: 64px auto; max-width: 880px; }
+  .scenario-eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--rule-2); }
+  .scenario-doc { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.7; color: var(--ink-2); background: var(--panel); border: 1px solid var(--rule-2); padding: 28px 32px; white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: auto; }
+
+  /* GATE block (in layer) */
+  .layer-gate { margin: 64px auto 0; padding: 36px 40px; border: 2px solid var(--ink); max-width: 880px; background: var(--panel); }
+  .layer-gate .gate-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+  .layer-gate .gate-title { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(24px, 2.6vw, 36px); line-height: 1; color: var(--ink); margin-bottom: 20px; }
+  .layer-gate p { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .layer-gate p em { color: var(--ink); font-style: italic; }
+
+  /* Production video blocks */
+  .prod-hero { position: relative; margin: 0 0 56px; }
+  .prod-hero video { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
+  .prod-hero .frame { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 32px; }
+  .prod-hero .frame .lbl { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+  .prod-hero .frame h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(36px, 5vw, 72px); line-height: 0.95; color: var(--ink); }
+  .prod-hero .cap { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--rule-2); max-width: 1180px; margin-left: auto; margin-right: auto; padding-left: 32px; padding-right: 32px; }
+
+  .cam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 40px 0 0; }
+  .cam-grid .cam { position: relative; }
+  .cam-grid video { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .cam-grid .cam-cap { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; display: flex; justify-content: space-between; padding-top: 6px; border-top: 1px solid var(--rule-2); }
+
+  .cam-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule-2); margin: 32px 0 0; }
+  .cam-specs .cell { padding: 20px 22px 24px; border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
+  .cam-specs .cell:nth-child(3n) { border-right: 0; }
+  .cam-specs .cell:nth-last-child(-n+3) { border-bottom: 0; }
+  .cam-specs .lbl { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+  .cam-specs .txt { font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+
+  .prod-outro { position: relative; margin: 56px 0 0; }
+  .prod-outro video { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
+  .prod-outro .cap { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--rule-2); }
+
+  /* Section header (generic) */
+  .sec-head { padding: 80px 0 24px; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
   .sec-eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
   .sec-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 48px); line-height: 1; color: var(--ink); margin-bottom: 16px; }
-  .sec-sub { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(16px, 1.5vw, 22px); line-height: 1.4; color: var(--ink-3); max-width: 60ch; }
-
-  /* Pipeline 3-layer */
-  .pipeline { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; padding: 24px 32px 0; max-width: 1180px; margin: 0 auto; }
-  .p-col { border: 1px solid var(--ink); padding: 22px 22px 26px; background: var(--panel); display: flex; flex-direction: column; }
-  .p-col .lbl { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
-  .p-col .name { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 28px; line-height: 1; color: var(--ink); margin-bottom: 12px; }
-  .p-col .desc { font-family: 'Source Serif 4', serif; font-size: 13px; line-height: 1.55; color: var(--ink-2); margin-bottom: 16px; }
-  .p-col .stats { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); line-height: 1.7; }
-  .p-col .stats .v { color: var(--ink); font-weight: 700; }
-  .p-gate { display: flex; align-items: center; justify-content: center; min-width: 60px; padding: 0 12px; }
-  .p-gate .g { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: 36px; line-height: 1; color: var(--ink); border: 2px solid var(--ink); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: var(--paper); }
-
-  /* Spotlight (Black Eye) */
-  .spot { padding: 64px 0; background: var(--panel); margin-top: 64px; border-top: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
-  .spot-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-  .spot-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 32px; }
-  .spot-head .lbl { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); }
-  .spot-head h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.6vw, 36px); color: var(--ink); line-height: 1.1; max-width: 32ch; margin-top: 8px; }
-  .spot-head .num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); letter-spacing: 0.05em; }
-  .spot-hero { position: relative; margin-bottom: 24px; }
-  .spot-hero video { width: 100%; aspect-ratio: 2.4/1; object-fit: cover; }
-  .spot-hero .cap { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--rule-2); }
-  .spot-triptych { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .spot-triptych img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-  .spot-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule-2); margin-top: 32px; }
-  .spot-specs .cell { padding: 18px 18px; border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
-  .spot-specs .cell:nth-child(3n) { border-right: 0; }
-  .spot-specs .cell:nth-last-child(-n+3) { border-bottom: 0; }
-  .spot-specs .lbl { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; }
-  .spot-specs .txt { font-family: 'Source Serif 4', serif; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
-  .spot-body { font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.72; color: var(--ink-2); max-width: 720px; margin: 32px auto 0; }
-  .spot-body p { margin-bottom: 14px; }
-  .spot-body em { color: var(--ink); font-style: italic; }
-  .spot-body strong { color: var(--ink); font-weight: 700; }
+  .sec-sub { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(16px, 1.5vw, 22px); line-height: 1.4; color: var(--ink-2); }
 
   /* Showcase (videos) — mixed orientations */
-  .showcase { padding: 80px 0 32px; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+  .showcase { padding: 16px 0 32px; max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
   .show-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
   .show-tile { position: relative; cursor: pointer; overflow: hidden; }
-  .show-tile--wide { grid-column: span 2; }  /* 16:9 horizontal — полширины */
-  .show-tile--vert { grid-column: span 1; }  /* 9:16 vertical — четверть ширины */
+  .show-tile--wide { grid-column: span 2; }
+  .show-tile--vert { grid-column: span 1; }
   .show-tile--16x9 video { aspect-ratio: 16/9; }
   .show-tile--9x16 video { aspect-ratio: 9/16; }
-  .show-tile video { width: 100%; object-fit: cover; transition: transform 0.4s ease; background: #050505; }
+  .show-tile video { width: 100%; object-fit: cover; transition: transform 0.4s ease; }
   .show-tile:hover video { transform: scale(1.03); }
-  .show-tile .cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); display: flex; justify-content: space-between; align-items: end; opacity: 0; transition: opacity 0.25s; }
-  .show-tile:hover .cap { opacity: 1; }
+  .show-tile .cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); display: flex; justify-content: space-between; align-items: end; opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.25s ease; }
+  .show-tile:hover .cap { opacity: 1; transform: translateY(0); }
   .show-tile .cap .l { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); }
-  .show-tile .cap .r { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--ink-3); letter-spacing: 0.05em; }
+  .show-tile .cap .r { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); }
   .show-tile .static-cap { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; display: flex; justify-content: space-between; padding-top: 6px; border-top: 1px solid var(--rule-2); }
 
   /* Stack grid */
@@ -136,13 +232,25 @@
 
   /* Responsive */
   @media (max-width: 900px) {
+    .masthead, .nav { padding-left: 0; padding-right: 0; }
+    .nav { display: none; }
     .page { padding: 0 20px; }
-    .hero .content { padding: 32px 20px 48px; }
-    .pipeline { grid-template-columns: 1fr; }
-    .p-gate { padding: 12px 0; min-width: 0; }
-    .spot-triptych { grid-template-columns: 1fr; }
-    .spot-specs { grid-template-columns: 1fr; }
-    .spot-specs .cell { border-right: 0; }
+    .hero { padding: 60px 20px 80px; }
+    .layer { padding: 64px 0; padding-left: 20px; padding-right: 20px; }
+    .layer-head { grid-template-columns: 1fr; gap: 20px; }
+    .stages { grid-template-columns: repeat(2, 1fr); }
+    .mag-row { grid-template-columns: 1fr; gap: 24px; margin: 48px 0; }
+    .mag-row--reverse .mag-img { order: 0; }
+    .mag-row--reverse .mag-text { order: 0; }
+    .detail-triptych { grid-template-columns: 1fr; gap: 16px; }
+    .detail-block { margin: 56px 0; }
+    .stages .cell:nth-child(2n) { border-right: 0; }
+    .stages .cell:nth-child(6n) { border-right: 1px solid var(--rule-2); }
+    .stages .cell:nth-last-child(-n+2) { border-bottom: 0; }
+    .cam-grid { grid-template-columns: 1fr; }
+    .cam-specs { grid-template-columns: 1fr; }
+    .cam-specs .cell { border-right: 0; }
+    .intro-grid { grid-template-columns: 1fr; }
     .show-grid { grid-template-columns: repeat(2, 1fr); }
     .show-tile--wide { grid-column: span 2; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
@@ -151,10 +259,15 @@
     .stack-col:nth-child(4n) { border-right: 1px solid var(--rule-2); }
     .stack-col:nth-child(2n) { border-right: 0; }
     .stack-col:nth-last-child(-n+2) { border-bottom: 0; }
-    footer { flex-direction: column; align-items: start; }
+    footer { flex-direction: column; align-items: start; padding: 40px 20px 32px; }
     footer .info { text-align: left; }
-    .masthead { padding: 56px 20px 0; }
     .lang-switch { top: 12px; right: 16px; }
+    .prod-hero video, .prod-outro video { aspect-ratio: 16/9; }
+    .layer-callout { padding: 28px 24px; }
+    .layer-body .step { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
+    .layer-body .step-num { padding-top: 0; }
+    .layer-gate { padding: 28px 24px; }
+    .scenario-doc { padding: 20px 18px; font-size: 11px; }
   }
 </style>
 </head>
@@ -171,219 +284,555 @@
   <div class="brand">CONTENT&shy;-FACTORY</div>
   <div class="brand lang-ru">ВЫПУСК 01 &middot; ПАЙПЛАЙН</div>
   <div class="brand lang-en">ISSUE 01 &middot; THE PIPELINE</div>
+  <nav class="nav">
+    <a href="#pre"><span class="lang-ru">СЛОЙ I</span><span class="lang-en">LAYER I</span></a>
+    <a href="#prod"><span class="lang-ru">СЛОЙ II</span><span class="lang-en">LAYER II</span></a>
+    <a href="#post"><span class="lang-ru">СЛОЙ III</span><span class="lang-en">LAYER III</span></a>
+    <a href="#work"><span class="lang-ru">ВИТРИНА</span><span class="lang-en">WORK</span></a>
+  </nav>
 </header>
 
-<!-- HERO -->
+<!-- HERO (CONTENT-FACTORY as title, byline as small print) -->
 <section class="hero">
-  <video autoplay loop muted playsinline src="assets/blackeye/BET_Website_Logo_2.mp4" poster="assets/blackeye/BET_Website_Logo_2-frame.png"></video>
-  <div class="overlay"></div>
-  <div class="content">
-    <div class="kicker lang-ru">СОЛО-ОПЕРАТОР &middot; СТАВРОПОЛЬ / УДАЛЁННО &middot; 2026</div>
-    <div class="kicker lang-en">SOLO OPERATOR &middot; STAVROPOL / REMOTE &middot; 2026</div>
-    <h1 class="lang-ru">Антон Бычковский</h1>
-    <h1 class="lang-en">Anton Bychkovsky</h1>
-    <p class="deck lang-ru">AI Video Production. Три слоя, четырнадцать стадий, три клиентских гейта &mdash; от брифа до финального мастера. Unreal Engine 5.8 + Hailuo H3 + DaVinci Resolve.</p>
-    <p class="deck lang-en">AI Video Production. Three layers, fourteen stages, three client gates &mdash; brief to final master. Unreal Engine 5.8 + Hailuo H3 + DaVinci Resolve.</p>
-    <div class="meta">
-      <span><strong>3</strong>&nbsp;<span class="lang-ru">СЛОЯ</span><span class="lang-en">LAYERS</span></span>
-      <span><strong>14</strong>&nbsp;<span class="lang-ru">СТАДИЙ</span><span class="lang-en">STAGES</span></span>
-      <span><strong>1054</strong>&nbsp;<span class="lang-ru">MCP-ТУЛЗОВ</span><span class="lang-en">MCP TOOLS</span></span>
-      <span><strong>1</strong>&nbsp;<span class="lang-ru">ОПЕРАТОР</span><span class="lang-en">OPERATOR</span></span>
-    </div>
+  <div class="eyebrow lang-ru">by АНТОН БЫЧКОВСКИЙ &middot; КОНТЕНТ-ПРОДЮСЕР &middot; СТАВРОПОЛЬ / УДАЛЁННО &middot; 2026</div>
+  <div class="eyebrow lang-en">by ANTON BYCHKOVSKY &middot; CONTENT PRODUCER &middot; STAVROPOL / REMOTE &middot; 2026</div>
+  <h1>CONTENT-FACTORY</h1>
+  <h2 class="deck lang-ru">The pipeline.</h2>
+  <h2 class="deck lang-en">The pipeline.</h2>
+  <p class="sub lang-ru">3 слоя &middot; 13 стадий &middot; 3 гейта с заказчиком &mdash; от брифа до финального мастера. <em>Сцена:</em> Unreal Engine &rarr; <em>Кадр:</em> MiniMax H3, Seedream 4.5 / 5.0, NanoBanana, GPT Image 2 &rarr; <em>Видео:</em> MiniMax H3, Kling (O1 / Avatar / Motion Control), Wan 2.6, Veo 3.1 (Standard / Fast), Seedance 2.0 &rarr; <em>Финиш:</em> DaVinci Resolve.</p>
+  <p class="sub lang-en">3 layers &middot; 13 stages &middot; 3 client gates &mdash; brief to final master. <em>Scene:</em> Unreal Engine &rarr; <em>Frame:</em> MiniMax H3, Seedream 4.5 / 5.0, NanoBanana, GPT Image 2 &rarr; <em>Video:</em> MiniMax H3, Kling (O1 / Avatar / Motion Control), Wan 2.6, Veo 3.1 (Standard / Fast), Seedance 2.0 &rarr; <em>Finish:</em> DaVinci Resolve.</p>
+  <div class="meta">
+    <span><strong>3</strong>&nbsp;<span class="lang-ru">СЛОЯ</span><span class="lang-en">LAYERS</span></span>
+    <span><strong>13</strong>&nbsp;<span class="lang-ru">СТАДИЙ</span><span class="lang-en">STAGES</span></span>
+    <span><strong>3</strong>&nbsp;<span class="lang-ru">ГЕЙТА</span><span class="lang-en">GATES</span></span>
+    <span><strong>1</strong>&nbsp;<span class="lang-ru">ПРОДЮСЕР</span><span class="lang-en">PRODUCER</span></span>
   </div>
 </section>
 
-<!-- SECTION 1: PIPELINE -->
-<section>
-  <div class="sec-head page">
-    <div class="sec-num lang-ru">I</div>
-    <div class="sec-num lang-en">I</div>
-    <div class="sec-eyebrow lang-ru">СЛОЙ I &middot; 01 / 03</div>
-    <div class="sec-eyebrow lang-en">LAYER I &middot; 01 / 03</div>
-    <h2 class="sec-title lang-ru">Пре&shy;продакшн.</h2>
-    <h2 class="sec-title lang-en">Pre&shy;-production.</h2>
-    <p class="sec-sub lang-ru">От однострочного брифа до полностью спроектированного 3D-мира и зафиксированной раскадровки &mdash; до того, как существует хоть один пиксель финального видео.</p>
-    <p class="sec-sub lang-en">From a one-line brief to a fully designed 3D world and a locked storyboard &mdash; before a single pixel of final video exists.</p>
+<!-- PIPELINE INTRO (3-card overview, 2 gates) -->
+<section class="intro">
+  <div class="intro-head">
+    <div class="fig lang-ru">FIG. 01 &middot; ТРЁХСЛОЙНАЯ АРХИТЕКТУРА &middot; ВЕРТИКАЛЬНЫЙ HAND-OFF</div>
+    <div class="fig lang-en">FIG. 01 &middot; THREE-LAYER ARCHITECTURE &middot; VERTICAL HANDOFF</div>
+    <div class="read lang-ru">&darr; ЧИТАТЬ СЛЕВА НАПРАВО</div>
+    <div class="read lang-en">&darr; READ LEFT TO RIGHT</div>
   </div>
 
-  <div class="pipeline">
-    <div class="p-col">
+  <div class="intro-grid">
+    <div class="i-col">
       <div class="lbl lang-ru">СЛОЙ I</div>
       <div class="lbl lang-en">LAYER I</div>
       <div class="name lang-ru">Пре&shy;продакшн</div>
-      <div class="name lang-en">Pre&shy;-production</div>
-      <div class="desc lang-ru">Дискавери, каст, локация, персонаж, атмосфера, раскадровка, камера, анимация, диалоги, режиссёрский сценарий. 9 стадий, 14 скиллов, 16 артефактов на проект.</div>
-      <div class="desc lang-en">Discovery, cast, location, character, atmosphere, storyboard, camera, animation, dialogue, director&rsquo;s scenario. 9 stages, 14 skills, 16 artifacts per project.</div>
+      <div class="name lang-en">Pre&shy;production</div>
+      <p class="desc lang-ru">От брифа до режиссёрского сценария. На этом этапе с вами согласовывается мизансцена, наполнение кадра и визуальный язык каждой сцены &mdash; задолго до первого кадра. Этот слой закладывает драматургическую и визуальную основу всего проекта.</p>
+      <p class="desc lang-en">From brief to director&rsquo;s scenario. At this stage, the mise-en-sc&egrave;ne, frame content, and visual language of each scene are worked out with you &mdash; long before the first frame. This layer lays down the dramatic and visual foundation of the entire project.</p>
+      <div class="i-stack">
+        <div class="i-stack-label lang-ru">AI &middot; TREND AGENT</div>
+        <div class="i-stack-label lang-en">AI &middot; TREND AGENT</div>
+        <ul>
+          <li>Trend Agent</li>
+          <li>Viral-аналитика</li>
+        </ul>
+        <div class="i-stack-label lang-ru">КЛАССИКА МАРКЕТИНГА</div>
+        <div class="i-stack-label lang-en">CLASSIC MARKETING</div>
+        <ul>
+          <li>AIDA &middot; PAS &middot; Hero's Journey</li>
+          <li>Проверенные хуки</li>
+          <li>Архетипы истории</li>
+        </ul>
+      </div>
       <div class="stats">
-        <div>СТАДИЙ / <span class="lang-en">STAGES</span> &middot; <span class="v">9</span></div>
+        <div>ВЫХОД / <span class="lang-en">OUTPUT</span> &middot; <span class="v lang-ru">СЦЕНАРИЙ</span><span class="v lang-en">SCENARIO</span></div>
         <div>СКИЛЛОВ / <span class="lang-en">SKILLS</span> &middot; <span class="v">~14</span></div>
-        <div>АРТЕФАКТОВ / <span class="lang-en">ARTIFACTS</span> &middot; <span class="v">~16</span></div>
+        <div>KB CORPUS &middot; <span class="v">240 КБ</span></div>
+        <div>STORYBOARD &middot; <span class="v">2—200 <span class="lang-ru">К</span><span class="lang-en">F</span></span></div>
       </div>
     </div>
-    <div class="p-gate"><div class="g">I</div></div>
-    <div class="p-col">
+    <div class="i-col">
       <div class="lbl lang-ru">СЛОЙ II</div>
       <div class="lbl lang-en">LAYER II</div>
       <div class="name lang-ru">Продакшн</div>
       <div class="name lang-en">Production</div>
-      <div class="desc lang-ru">Unreal Engine 5.8 + Nwiro IK по-настоящему строят мир. Ландшафт, обстановка, персонажи, Black Eye камеры, сплайны, рендер. 7 фотореалистичных кадров на шот.</div>
-      <div class="desc lang-en">Unreal Engine 5.8 + Nwiro IK build the world for real. Terrain, dressing, characters, Black Eye cameras, splines, render. Seven photorealistic frames per shot.</div>
+      <p class="desc lang-ru">3D-мир &mdash; залог консистентности. Создаётся полноценная сцена: ландшафт, обстановка, персонажи, камеры, анимация. Из неё собирается покадровый preview, который становится основой для генерации финального видео через MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6. Три секунды или серия &mdash; каждая сцена держит ту же геометрию, свет и атмосферу.</p>
+      <p class="desc lang-en">3D world as the key to consistency. A full scene is built: landscape, dressing, characters, cameras, animation. From it, a frame-by-frame preview is assembled &mdash; which becomes the foundation for final video generation through MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6. Three seconds or a full series &mdash; every scene holds the same geometry, light, and atmosphere.</p>
+      <div class="i-stack">
+        <div class="i-stack-label lang-ru">3D</div>
+        <div class="i-stack-label lang-en">3D</div>
+        <ul>
+          <li>Unreal Engine</li>
+          <li>Houdini</li>
+        </ul>
+        <div class="i-stack-label lang-ru">ФИНАЛЬНОЕ ВИДЕО ЧЕРЕЗ</div>
+        <div class="i-stack-label lang-en">FINAL VIDEO THROUGH</div>
+        <ul>
+          <li>MiniMax H3</li>
+          <li>SEEDANCE 2.0</li>
+          <li>VEO 3.1</li>
+          <li>KLING</li>
+          <li>WAN 2.6</li>
+        </ul>
+      </div>
       <div class="stats">
-        <div>СТАДИЙ / <span class="lang-en">STAGES</span> &middot; <span class="v">4</span></div>
-        <div>MCP-ТУЛЗОВ / <span class="lang-en">MCP TOOLS</span> &middot; <span class="v">1054</span></div>
-        <div>КАДРОВ / <span class="lang-en">FRAMES</span> &middot; <span class="v">7</span></div>
-        <div>РЕНДЕР / <span class="lang-en">RENDER</span> &middot; <span class="v">UE 5.8</span></div>
+        <div>СТАДИЙ / <span class="lang-en">STAGES</span> &middot; <span class="v">7</span></div>
+        <div>СКИЛЛОВ / <span class="lang-en">SKILLS</span> &middot; <span class="v">~7</span></div>
+        <div>ПЛАТФОРМА / <span class="lang-en">PLATFORM</span> &middot; <span class="v">UE &middot; Houdini</span></div>
+        <div>МУЛЬТИ-КАМЕРА / <span class="lang-en">MULTI-CAM</span> &middot; <span class="v">до 6</span></div>
       </div>
     </div>
-    <div class="p-gate"><div class="g">II</div></div>
-    <div class="p-col">
+    <div class="i-col">
       <div class="lbl lang-ru">СЛОЙ III</div>
       <div class="lbl lang-en">LAYER III</div>
       <div class="name lang-ru">Пост&shy;продакшн</div>
-      <div class="name lang-en">Post&shy;-production</div>
-      <div class="desc lang-ru">Hailuo H3 превращает рендеры в видео. Голос и музыка добавляются. DaVinci Resolve финиширует монтаж одним грейдом на весь ролик. 3 формата на выходе.</div>
-      <div class="desc lang-en">Hailuo H3 turns the renders into video. Voice and music are added. DaVinci Resolve finishes the cut with one grade across the whole piece. 3 outputs.</div>
+      <div class="name lang-en">Post&shy;production</div>
+      <p class="desc lang-ru">Монтаж, цветокоррекция, грейд, липсинк и финальная сборка. Озвучка и музыка &mdash; через AI-инструменты; видео-генерация здесь не задействована. Единый грейд на весь ролик в DaVinci Resolve. Доставка в трёх форматах.</p>
+      <p class="desc lang-en">Editing, color correction, grade, lip-sync, and final assembly. Voice and music &mdash; through AI tools; no video generation involved here. A single grade across the whole piece in DaVinci Resolve. Delivered in three formats.</p>
+      <div class="i-stack">
+        <div class="i-stack-label lang-ru">DAVINCI &middot; POST-ОБРАБОТКА</div>
+        <div class="i-stack-label lang-en">DAVINCI &middot; POST-PRODUCTION</div>
+        <ul>
+          <li class="highlight">DaVinci Resolve</li>
+          <li>LipSync &middot; Sync Labs</li>
+          <li>Звук &middot; Epidemic Sound</li>
+        </ul>
+      </div>
       <div class="stats">
         <div>СТАДИЙ / <span class="lang-en">STAGES</span> &middot; <span class="v">4</span></div>
-        <div>МОДЕЛИ / <span class="lang-en">MODELS</span> &middot; <span class="v">H3 · Veo · Sora</span></div>
-        <div>МОНТАЖ / <span class="lang-en">EDIT</span> &middot; <span class="v">DaVinci</span></div>
-        <div>ФОРМАТЫ / <span class="lang-en">FORMATS</span> &middot; <span class="v">9:16 · 16:9 · 21:9</span></div>
+        <div>AI &middot; <span class="lang-ru">ГОЛОС / ЛИПСИНК / МУЗЫКА</span><span class="lang-en">VOICE / LIP-SYNC / MUSIC</span></div>
+        <div>ФИНИШ &middot; <span class="v">DaVinci</span></div>
+        <div>ФОРМАТЫ / <span class="lang-en">FORMATS</span> &middot; <span class="v">9:16 &middot; 16:9 &middot; 21:9</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 2: TOOL SPOTLIGHT · BLACK EYE -->
-<section class="spot">
-  <div class="spot-inner">
-    <div class="spot-head">
-      <div>
-        <div class="lbl lang-ru">TOOL SPOTLIGHT &middot; СЛОЙ ПРОДАКШН &middot; 2C</div>
-        <div class="lbl lang-en">TOOL SPOTLIGHT &middot; PRODUCTION LAYER &middot; 2C</div>
-        <h3 class="lang-ru">Black Eye 2.0 &mdash; процедурная камера для UE 5.4+ от создателей Cinemachine для Unity.</h3>
-        <h3 class="lang-en">Black Eye 2.0 &mdash; procedural camera for UE 5.4+ from the creators of Cinemachine for Unity.</h3>
-      </div>
-      <div class="num lang-ru">FAB.COM &middot; $99.99</div>
-      <div class="num lang-en">FAB.COM &middot; $99.99</div>
-    </div>
-
-    <div class="spot-hero">
-      <video autoplay loop muted playsinline src="assets/blackeye/BET_Website_Logo_2.mp4" poster="assets/blackeye/BET_Website_Logo_2-frame.png"></video>
-      <p class="cap"><span class="lang-ru">КИНЕМАТОГРАФИЧЕСКИЙ МАСТЕР-КАДР &middot; BLACK EYE 2.0</span><span class="lang-en">CINEMATIC MASTER FRAME &middot; BLACK EYE 2.0</span><span>BLACK EYE TECHNOLOGIES</span></p>
-    </div>
-
-    <div class="spot-triptych">
-      <img src="assets/blackeye/BET_WEB_5-frame.png" alt="Character follow with Dynamic FOV">
-      <img src="assets/blackeye/BET_WEB_17-frame.png" alt="Procedural shot list with 16 cameras in desert">
-      <img src="assets/blackeye/BET_Web_11-frame.png" alt="Driving camera rig BET_CAM_Driving2 in night city">
-    </div>
-
-    <div class="spot-specs">
-      <div class="cell">
-        <div class="lbl">CROSS CAMERA</div>
-        <div class="txt lang-ru">Кадрирование диалога двух субъектов. Перпендикулярный угол. Правило 90&deg; автоматически.</div>
-        <div class="txt lang-en">Two-subject dialogue framing. Perpendicular angle. 90&deg; rule automatic.</div>
-      </div>
-      <div class="cell">
-        <div class="lbl">CLOUD MODE</div>
-        <div class="txt lang-ru">Рантайм-AI автовыбирает лучшую из N камер. 6&ndash;16 камер на сцену, ручных склеек не нужно.</div>
-        <div class="txt lang-en">Runtime AI auto-selects best of N cameras. 6&ndash;16 cameras per scene, no manual cuts needed.</div>
-      </div>
-      <div class="cell">
-        <div class="lbl">MULTI-SUBJECT</div>
-        <div class="txt lang-ru">До 60 субъектов одновременно. Массовые сцены одним ригом.</div>
-        <div class="txt lang-en">Up to 60 subjects at once. Mass scenes with one rig.</div>
-      </div>
-      <div class="cell">
-        <div class="lbl">SHOT LIST</div>
-        <div class="txt lang-ru">Стэкаемые массивы камер, склейки по времени, рандомизация.</div>
-        <div class="txt lang-en">Stackable camera arrays, time-based cuts, randomization.</div>
-      </div>
-      <div class="cell">
-        <div class="lbl">VELOCITY LOOK AHEAD</div>
-        <div class="txt lang-ru">Камера предсказывает движение и ведёт действие. Кадры-упреждения.</div>
-        <div class="txt lang-en">Camera predicts motion and leads the action. Anticipation frames.</div>
-      </div>
-      <div class="cell">
-        <div class="lbl">DYNAMIC FOV</div>
-        <div class="txt lang-ru">Тонкие подстройки FOV для дыхания в крупных планах. 3&ndash;5% punch-in.</div>
-        <div class="txt lang-en">Subtle FOV adjustments for breathing in close-ups. 3&ndash;5% punch-in.</div>
-      </div>
-    </div>
-
-    <div class="spot-body">
-      <p class="lang-ru">Black Eye заменяет ~50% ручной работы оператора на процедурные риги: камеры, которые следят, смотрят и кадрируют субъектов по правилам, а не по кейфреймам. Создатели &mdash; <em>Адам Милл</em> и <em>Джеральд Орбан</em>, оригинальные авторы Cinemachine для Unity. Используем в 2C-стадии продакшна для каждой сцены.</p>
-      <p class="lang-en">Black Eye replaces ~50% of manual camera work with procedural rigs: cameras that follow, look at, and frame subjects by rules, not keyframes. Built by <em>Adam Myhill</em> and <em>Gerald Orban</em>, the original creators of Cinemachine for Unity. We use it in the 2C production stage for every scene.</p>
+<!-- LAYER I — PRE-PRODUCTION -->
+<article class="layer" id="pre">
+  <div class="layer-head">
+    <div class="layer-num">I</div>
+    <div class="layer-info">
+      <div class="eyebrow lang-ru">СЛОЙ I &middot; 01 / 03 &middot; ПРЕ&shy;ПРОДАКШН</div>
+      <div class="eyebrow lang-en">LAYER I &middot; 01 / 03 &middot; PRE&shy;-PRODUCTION</div>
+      <h2 class="lang-ru">От брифа до режиссёрского сценария.</h2>
+      <h2 class="lang-en">From brief to Director&rsquo;s Scenario.</h2>
+      <p class="lede lang-ru">На этом этапе с вами согласовывается мизансцена, наполнение кадра и визуальный язык каждой сцены &mdash; задолго до первого кадра. Этот слой закладывает драматургическую и визуальную основу всего проекта.</p>
+      <p class="lede lang-en">At this stage, the mise-en-sc&egrave;ne, frame content, and visual language of every scene are agreed with you &mdash; well before the first frame. This layer establishes the dramatic and visual foundation for the entire project.</p>
     </div>
   </div>
-</section>
 
-<!-- SECTION 3: SHOWCASE -->
-<section class="showcase">
+  <!-- AI + КЛАССИКА callout -->
+  <div class="layer-callout">
+    <div class="callout-eyebrow lang-ru">ПОДХОД</div>
+    <div class="callout-eyebrow lang-en">APPROACH</div>
+    <h3 class="callout-title lang-ru">AI + классика.</h3>
+    <h3 class="callout-title lang-en">AI + Classics.</h3>
+    <p class="lang-ru">Сегодняшний шум &mdash; завтрашний мусор. Мой способ работы &mdash; не про следование трендам, а про их отбор. AI-инструменты помогают видеть, что актуально прямо сейчас. Классика &mdash; то, что работало всегда: забытые приёмы, проверенные сюжеты, устойчивые способы подать историю. Они <em>переплетаются</em> &mdash; в нарративе и в визуальной подаче. Это то, что отличает авторскую работу от конвейерной.</p>
+    <p class="lang-en">Today&rsquo;s noise is tomorrow&rsquo;s garbage. My way of working isn&rsquo;t about following trends, but about selecting them. AI tools help see what&rsquo;s relevant right now. Classics are what always worked: forgotten techniques, proven stories, stable ways of presenting a story. They are <em>interweaved</em> &mdash; in narrative and in visual delivery. This is my way of doing what mass production doesn&rsquo;t.</p>
+  </div>
+
+  <!-- 5 steps of Pre-prod -->
+  <div class="layer-body">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">DISCOVERY &middot; ДИСКАВЕРИ</div>
+        <div class="step-eyebrow lang-en">DISCOVERY</div>
+        <h4 class="lang-ru">Принимаю ваш ввод.</h4>
+        <h4 class="lang-en">I take your input.</h4>
+        <p class="lang-ru">В любой форме. Готовое ТЗ, идея в двух предложениях или «ничего, придумайте сами» &mdash; через несколько уточняющих вопросов проясняется суть: тон, жанр, хронометраж, сеттинг, персонажи, обязательные элементы.</p>
+        <p class="lang-en">Any form. A finished brief, a two-sentence idea, or &ldquo;nothing, you come up with it&rdquo; &mdash; through a few clarifying questions the essence becomes clear: tone, genre, runtime, setting, characters, mandatory elements.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">КОНЦЕПЦИЯ + НАРРАТИВ</div>
+        <div class="step-eyebrow lang-en">CONCEPT + NARRATIVE</div>
+        <h4 class="lang-ru">Кристаллизую идею.</h4>
+        <h4 class="lang-en">I crystallize the idea.</h4>
+        <p class="lang-ru">Даже если вы пришли с «ничего, придумайте сами» &mdash; ввод оформляется в концепт: что происходит, кто протагонист, какова драматургическая коллизия, какие обязательные сюжетные точки. Если идея ваша &mdash; дополняется тем, что делает её сильнее. На выходе &mdash; одностраничный концепт-документ, готовый к дальнейшей работе.</p>
+        <p class="lang-en">Even if you came with &ldquo;nothing, you come up with it&rdquo; &mdash; the input is shaped into a concept: what happens, who is the protagonist, what is the dramatic conflict, what are the mandatory plot points. If the idea is yours &mdash; it is complemented with what makes it stronger. The output is a one-page concept document, ready to work on.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">WORLD &amp; CHARACTERS &middot; МИР И ПЕРСОНАЖИ</div>
+        <div class="step-eyebrow lang-en">WORLD &amp; CHARACTERS</div>
+        <h4 class="lang-ru">Описываю мир и персонажей в нём.</h4>
+        <h4 class="lang-en">I describe the world and its characters.</h4>
+        <p class="lang-ru">Где происходит, какие локации, какие предметы, какая техника. И отдельно &mdash; подробное описание каждого персонажа: возраст, внешность, одежда, как двигается, какие привычки, как говорит. Не только люди. Всё это идёт в набор рабочих файлов и инструкций, который создаётся параллельно.</p>
+        <p class="lang-en">Where it happens, what locations, what props, what equipment. And separately &mdash; a detailed description of each character: age, appearance, clothing, how they move, habits, speech. Not only humans. All of this goes into a set of working files and instructions that is created in parallel.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">ATMOSPHERE &middot; АТМОСФЕРА</div>
+        <div class="step-eyebrow lang-en">ATMOSPHERE</div>
+        <h4 class="lang-ru">Определяю атмосферу.</h4>
+        <h4 class="lang-en">I set the atmosphere.</h4>
+        <p class="lang-ru">Свет, время суток, настроение, визуальный мотив, музыка. Это нерв будущего ролика.</p>
+        <p class="lang-en">Light, time of day, mood, visual motif, music. This is the nerve of the future piece.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">STORYBOARD &middot; РАСКАДРОВКА</div>
+        <div class="step-eyebrow lang-en">STORYBOARD</div>
+        <h4 class="lang-ru">Собираю раскадровку.</h4>
+        <h4 class="lang-en">I build the storyboard.</h4>
+        <p class="lang-ru">Ключевые моменты по сценам &mdash; что увидит зритель по секундам, в 3&ndash;4 кадрах на сцену. Это скелет, на который нанизывается всё остальное.</p>
+        <p class="lang-en">Key moments per scene &mdash; what the audience will see, second by second, in 3&ndash;4 frames per scene. This is the skeleton on which everything else is strung.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <div class="step-eyebrow lang-ru">CINEMATOGRAPHY &middot; РЕЖИССУРА КАДРА</div>
+        <div class="step-eyebrow lang-en">CINEMATOGRAPHY</div>
+        <h4 class="lang-ru">Описываю кадры и движение.</h4>
+        <h4 class="lang-en">I describe shots and motion.</h4>
+        <p class="lang-ru">Где стоит камера, как смотрит, какие ракурсы, как двигаются персонажи, какие ключевые точки в каждой сцене &mdash; план для 3D-Production, чтобы сцена строилась точно под историю.</p>
+        <p class="lang-en">Where the camera stands, how it looks, what angles, how characters move, what key moments in each scene &mdash; the plan for 3D Production, so the scene is built exactly to fit the story.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- На выходе из этого слоя -->
+  <div class="layer-callout">
+    <div class="callout-eyebrow lang-ru">НА ВЫХОДЕ ИЗ ЭТОГО СЛОЯ</div>
+    <div class="callout-eyebrow lang-en">OUTPUT OF THIS LAYER</div>
+    <h3 class="callout-title lang-ru">Рабочие файлы + режиссёрский сценарий.</h3>
+    <h3 class="callout-title lang-en">Working files + Director&rsquo;s Scenario.</h3>
+    <p class="lang-ru">Два результата. Первый &mdash; набор рабочих файлов и инструкций, мой внутренний материал для следующего слоя. Второй &mdash; и это главное для вас &mdash; <em>режиссёрский сценарий</em>. Документ, по которому вы можете контролировать и отслеживать весь ход работы.</p>
+    <p class="lang-en">Two results. The first &mdash; a set of working files and instructions, my internal material for the next layer. The second &mdash; and this is what&rsquo;s important for you &mdash; is the <em>Director&rsquo;s Scenario</em>. A document that lets you control and track the entire workflow.</p>
+    <p class="lang-ru">В нём только то, что увидит зритель: жанр, длительность, где происходит, главный объект, настроение. По каждой сцене &mdash; где и 3&ndash;4 ключевых кадра. Никаких камер, линз, координат &mdash; только суть того, что вы получите.</p>
+    <p class="lang-en">It contains only what the audience will see: genre, length, where it happens, main subject, mood. For each scene &mdash; where and 3&ndash;4 key frames. No cameras, lenses, coordinates &mdash; just the essence of what you&rsquo;ll get.</p>
+  </div>
+
+  <!-- Example: режиссёрский сценарий -->
+  <div class="scenario-example">
+    <div class="scenario-eyebrow lang-ru">ПРИМЕР &middot; КАК ВЫГЛЯДИТ РЕЖИССЁРСКИЙ СЦЕНАРИЙ</div>
+    <div class="scenario-eyebrow lang-en">EXAMPLE &middot; WHAT THE DIRECTOR&rsquo;S SCENARIO LOOKS LIKE</div>
+    <pre class="scenario-doc"># Крыша над городом — Режиссёрский сценарий
+
+**Жанр:** нуар
+**Длительность:** 30 секунд (10 сцен по 3 сек)
+**Где происходит:** крыша старого доходного дома, закат, мягкий ветер
+**Главный объект:** девушка с фотоаппаратом
+**Настроение:** тревожное ожидание, одиночество, готовность к разговору
+
+---
+
+## Сцена 1: Выход на крышу
+
+**Где:** бетонная крыша с парапетом, ржавая водонапорная башня,
+видны крыши соседних домов.
+
+- **Кадр 1 (0.0-0.5 сек):** дверь на крышу открывается, появляется
+  силуэт девушки
+- **Кадр 2 (0.5-1.5 сек):** девушка выходит, останавливается у парапета
+- **Кадр 3 (1.5-2.5 сек):** достаёт фотоаппарат, поднимает к лицу
+- **Кадр 4 (2.5-3.0 сек):** замирает, опускает камеру, прислушивается</pre>
+  </div>
+
+  <!-- GATE 1 -->
+  <div class="layer-gate">
+    <div class="gate-eyebrow">GATE 1</div>
+    <div class="gate-title lang-ru">Согласование с заказчиком.</div>
+    <div class="gate-title lang-en">Client Approval.</div>
+    <p class="lang-ru">Вы читаете режиссёрский сценарий. Это <em>единственная точка</em>, где pre-prod выходит к вам. Если всё ок &mdash; стартует 3D-Production. Если нужны правки &mdash; сценарий перерабатывается: до визуального производства изменения занимают секунды. Время на ревью &mdash; 1&ndash;2 минуты для короткого ролика, 5&ndash;10 минут для серии.</p>
+    <p class="lang-en">You read the Director&rsquo;s Scenario. This is the <em>only point</em> where pre-production comes to you. If all is well &mdash; 3D Production starts. If edits are needed &mdash; the scenario is reworked: before visual production, changes take seconds. Review time &mdash; 1&ndash;2 minutes for a short video, 5&ndash;10 minutes for a series.</p>
+  </div>
+</article>
+
+<!-- LAYER II — PRODUCTION -->
+<article class="layer" id="prod">
+  <div class="layer-head">
+    <div class="layer-num">II</div>
+    <div class="layer-info">
+      <div class="eyebrow lang-ru">СЛОЙ II &middot; 02 / 03 &middot; ПРОДАКШН</div>
+      <div class="eyebrow lang-en">LAYER II &middot; 02 / 03 &middot; PRODUCTION</div>
+      <h2 class="lang-ru">3D-павильон. Основа кадра.</h2>
+      <h2 class="lang-en">3D pavilion. The frame&rsquo;s basis.</h2>
+      <p class="lede lang-ru">Здесь возводится <em>3D-павильон</em> &mdash; виртуальное пространство, в котором живёт вся история. Сцена, персонажи, камеры, анимация &mdash; каждый элемент существует как самостоятельный объект с фиксированными координатами и свойствами.</p>
+      <p class="lede lang-en">Here a <em>3D pavilion</em> is erected &mdash; a virtual space in which the entire story lives. The scene, characters, cameras, animation &mdash; every element exists as an independent object with fixed coordinates and properties.</p>
+    </div>
+  </div>
+
+  <!-- Production hero video: opening -->
+  <div class="prod-hero">
+    <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/01-prod-opening.mp4" poster="assets/prod-posters/01-prod-opening.jpg"></video>
+    <div class="frame">
+      <div class="lbl lang-ru">СЛОЙ II &middot; ПРОДАКШН &middot; ОТКРЫВАЮЩИЙ КАДР</div>
+      <div class="lbl lang-en">LAYER II &middot; PRODUCTION &middot; OPENING FRAME</div>
+      <h3 class="lang-ru">Продакшн.</h3>
+      <h3 class="lang-en">Production.</h3>
+    </div>
+  </div>
+  <p class="cap"><span class="lang-ru">ПРЕВИЗ &rarr; ВИДЕО &middot; MiniMax H3 &middot; SEEDANCE 2.0 &middot; VEO 3.1 &middot; KLING &middot; WAN 2.6</span><span class="lang-en">PREVIS &rarr; VIDEO &middot; MiniMax H3 &middot; SEEDANCE 2.0 &middot; VEO 3.1 &middot; KLING &middot; WAN 2.6</span><span>01 / 05</span></p>
+
+  <!-- Full production description: under hero, before magazine blocks -->
+  <div class="layer-body layer-body--full" style="margin-top: 32px;">
+    <p class="lang-ru">В 3D-сцене создаётся виртуальное пространство &mdash; ландшафт и архитектура, интерьер и экстерьер, транспорт и анимированные персонажи, камеры и освещение. Каждый элемент существует как самостоятельный объект с фиксированными координатами, размерами и свойствами. На основе этой сцены &mdash; через покадровый pre-vis или полноценный pre-vis-ролик &mdash; генерируется финальное видео через MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6.</p>
+    <p class="lang-en">In the 3D scene, a virtual space is created &mdash; landscape and architecture, interior and exterior, vehicles and animated characters, cameras and lighting. Every element exists as an independent object with fixed coordinates, dimensions, and properties. Based on this scene &mdash; through frame-by-frame pre-vis or a full pre-vis video &mdash; the final video is generated through MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6.</p>
+  </div>
+
+  <!-- Magazine block 1: Scene & Light -->
+  <div class="mag-row">
+    <div class="mag-img">
+      <img src="assets/prod-posters/06-lighting-car.jpg" alt="Studio lighting setup">
+    </div>
+    <div class="mag-text">
+      <div class="mag-eyebrow lang-ru">СЦЕНА &middot; СВЕТ</div>
+      <div class="mag-eyebrow lang-en">SCENE &middot; LIGHT</div>
+      <h3 class="lang-ru">Полный контроль над сценой и светом.</h3>
+      <h3 class="lang-en">Full control over scene and light.</h3>
+      <p class="lang-ru">Подбирается локация &mdash; мир, в котором развернётся история. Внутри создаются все сущности: ландшафт, обстановка, персонажи. Сцена живёт как единое целое: каждый объект остаётся на своём месте, каждая тень держит направление, каждый источник света сохраняет интенсивность и цвет от кадра к кадру. Эта консистентность &mdash; главное условие для AI-генерации видео по pre-vis&rsquo;ам: нейросеть получает физически непротиворечивый набор кадров и собирает из них ролик, в котором каждая сцена говорит на едином визуальном языке. Полная анимация разворачивается по режиссёрскому сценарию &mdash; и каждый кадр дышит тем же светом и той же геометрией, что и соседний.</p>
+      <p class="lang-en">The location is chosen &mdash; the world in which the story unfolds. Within it, all entities are created: landscape, dressing, characters. The scene lives as a whole: every object holds its place, every shadow keeps its direction, every light source preserves its intensity and color from frame to frame. This consistency is the key condition for AI video generation from the pre-vis frames: the model receives a physically coherent set of frames and assembles a piece in which every scene speaks a single visual language. Full animation unfolds from the director&rsquo;s scenario &mdash; and every frame breathes the same light and the same geometry as its neighbor.</p>
+    </div>
+  </div>
+
+  <!-- Magazine block 2: Physics -->
+  <div class="mag-row mag-row--reverse">
+    <div class="mag-img">
+      <img src="assets/prod-posters/07-physics-bottle.jpg" alt="Fluid physics">
+    </div>
+    <div class="mag-text">
+      <div class="mag-eyebrow lang-ru">ФИЗИКА</div>
+      <div class="mag-eyebrow lang-en">PHYSICS</div>
+      <h3 class="lang-ru">Полный контроль над физикой.</h3>
+      <h3 class="lang-en">Full control over physics.</h3>
+      <p class="lang-ru">Жидкости, мягкие тела, твёрдые поверхности, частицы, атмосферные явления &mdash; всё это симулируется в реальном времени с физической достоверностью. Падение капли, колыхание ткани, отражение света в стекле, поведение дыма и огня, движение облаков, рябь на воде &mdash; каждое явление просчитывается движком, а не угадывается нейросетью. 3D-сцена держит законы физики на всём протяжении ролика, поэтому AI получает набор кадров, в которых материалы ведут себя как настоящие. Это и есть физика иммерсивного мира: каждая капля, каждая тень, каждое движение воздуха существует в сцене &mdash; а не дорисовывается при генерации.</p>
+      <p class="lang-en">Fluids, soft bodies, hard surfaces, particles, atmospheric phenomena &mdash; all of this is simulated in real time with physical accuracy. The fall of a drop, the sway of fabric, the reflection of light in glass, the behavior of smoke and fire, the movement of clouds, ripples on water &mdash; every phenomenon is calculated by the engine, not guessed by the AI. The 3D scene keeps the laws of physics throughout the entire piece, so the AI receives a set of frames in which materials behave like the real thing. This is the physics of an immersive world: every drop, every shadow, every movement of air exists in the scene &mdash; and is not drawn in during generation.</p>
+    </div>
+  </div>
+
+  <!-- Detail control block: 3D-scanning precision across frame-to-frame consistency -->
+  <div class="detail-block">
+    <div class="mag-eyebrow lang-ru">ДЕТАЛИ &middot; КОНСИСТЕНТНОСТЬ</div>
+    <div class="mag-eyebrow lang-en">DETAILS &middot; CONSISTENCY</div>
+    <h3 class="lang-ru">Полный контроль над деталями.</h3>
+    <h3 class="lang-en">Full control over details.</h3>
+    <div class="detail-triptych">
+      <figure class="detail-frame">
+        <img src="assets/prod-posters/09-watch-graybox.jpg" alt="Graybox geometry">
+        <figcaption class="lang-ru">GRAYBOX &middot; ГЕОМЕТРИЯ</figcaption>
+        <figcaption class="lang-en">GRAYBOX &middot; GEOMETRY</figcaption>
+      </figure>
+      <figure class="detail-frame">
+        <img src="assets/prod-posters/08-watch-textured.jpg" alt="Pre-vis with full text legibility">
+        <figcaption class="lang-ru">PREVIZ &middot; ВИДЕН ТЕКСТ</figcaption>
+        <figcaption class="lang-en">PREVIZ &middot; TEXT VISIBLE</figcaption>
+      </figure>
+      <figure class="detail-frame">
+        <img src="assets/prod-posters/10-watch-final.jpg" alt="Video generation output">
+        <figcaption class="lang-ru">ГЕНЕРАЦИЯ ВИДЕО</figcaption>
+        <figcaption class="lang-en">VIDEO GENERATION</figcaption>
+      </figure>
+    </div>
+    <p class="lang-ru">3D-сканирование и процедурная детализация дают тотальный контроль над каждой структурой. Каждый элемент сцены &mdash; от мелкого винта до крупной архитектурной формы &mdash; существует как самостоятельный объект с фиксированными координатами, размерами и пропорциями. Геометрия не &laquo;плывёт&raquo; между кадрами: циферблат остаётся циферблатом, головка &mdash; головкой, звено браслета &mdash; звеном. На стадии pre-vis через 3D-сцену досконально передаётся любая текстовая информация &mdash; логотипы, надписи на шкале, серийные номера, мелкий технический текст &mdash; и она остаётся читаемой и постоянной от первого до последнего кадра. Длительность ролика значения не имеет &mdash; три секунды или серия из двадцати эпизодов держат одну и ту же форму, потому что в основе лежит не угадывание нейросети, а просчитанная сцена.</p>
+    <p class="lang-en">3D scanning and procedural detailing give total control over every structure. Each element of the scene &mdash; from a small screw to a large architectural form &mdash; exists as an independent object with fixed coordinates, sizes, and proportions. The geometry does not &laquo;drift&raquo; between frames: the dial stays the dial, the crown stays the crown, the bracelet link stays the link. At the pre-vis stage, any textual information is transmitted through the 3D scene in full detail &mdash; logos, scale engravings, serial numbers, fine technical text &mdash; and it remains readable and constant from the first frame to the last. The duration of the piece does not matter &mdash; three seconds or a series of twenty episodes hold the same form, because the foundation is not the AI&rsquo;s guessing, but a calculated scene.</p>
+  </div>
+
+  <!-- Camera block: heading + 3 videos + body text + specs table -->
+  <div class="camera-block">
+    <div class="mag-eyebrow lang-ru">BLACK EYE &middot; КАМЕРЫ</div>
+    <div class="mag-eyebrow lang-en">BLACK EYE &middot; CAMERAS</div>
+    <h3 class="lang-ru">Кинематографист в каждой камере.</h3>
+    <h3 class="lang-en">A cinematographer in every camera.</h3>
+
+    <div class="cam-grid">
+      <div class="cam">
+        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/02-camera-night.mp4" poster="assets/prod-posters/02-camera-night.jpg"></video>
+        <div class="cam-cap"><span class="lang-ru">КАМЕРА 01 &middot; ДИНАМИЧЕСКИЙ FOV</span><span class="lang-en">CAM 01 &middot; DYNAMIC FOV</span><span>02 / 05</span></div>
+      </div>
+      <div class="cam">
+        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/03-camera-desert.mp4" poster="assets/prod-posters/03-camera-desert.jpg"></video>
+        <div class="cam-cap"><span class="lang-ru">КАМЕРА 02 &middot; ПУСТЫНЯ &middot; 16 КАМЕР</span><span class="lang-en">CAM 02 &middot; DESERT &middot; 16 CAMS</span><span>03 / 05</span></div>
+      </div>
+      <div class="cam">
+        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/04-camera-fov.mp4" poster="assets/prod-posters/04-camera-fov.jpg"></video>
+        <div class="cam-cap"><span class="lang-ru">КАМЕРА 03 &middot; НОЧНОЙ ДРАЙВ</span><span class="lang-en">CAM 03 &middot; NIGHT DRIVE</span><span>04 / 05</span></div>
+      </div>
+    </div>
+
+    <p class="lang-ru">В сцену помещается до шести камер &mdash; за каждой заложен принцип работы профессионального оператора (технология Black Eye). Камеры не просто фиксируют картинку &mdash; они её ведут: чувствуют момент, держат ритм, выбирают ракурс не по координатам, а по драматургической логике сцены. Несколько камер работают одновременно &mdash; и каждая пишет свою часть истории, а вместе они складываются в единое визуальное высказывание.</p>
+    <p class="lang-en">Up to six cameras are placed in the scene &mdash; each carries the working principles of a professional operator (Black Eye technology). The cameras don&rsquo;t just record the frame &mdash; they lead it: feel the moment, hold the rhythm, choose the angle not by coordinates, but by the dramatic logic of the scene. Several cameras work simultaneously &mdash; each writes its own part of the story, and together they fold into a single visual statement.</p>
+    <p class="lang-ru">Каждая камера работает по правилам кинематографиста: держит <em>90-градусное правило</em> в диалогах, выбирает лучший кадр из нескольких ракурсов, тонко подстраивает FOV для дыхания в крупных планах. Это не искусственный интеллект, управляющий камерой, &mdash; это профессиональный глаз, впечатанный в её код.</p>
+    <p class="lang-en">Each camera works by a cinematographer&rsquo;s rules: keeps the <em>90-degree rule</em> in dialogues, picks the best frame from several angles, subtly adjusts FOV for breathing in close-ups. This is not artificial intelligence controlling a camera &mdash; it is a professional eye, embedded in its code.</p>
+
+    <div class="cam-specs">
+    <div class="cell">
+      <div class="lbl">CROSS CAMERA</div>
+      <div class="txt lang-ru">Кадрирование диалога двух субъектов. Перпендикулярный угол. Правило 90&deg; автоматически.</div>
+      <div class="txt lang-en">Two-subject dialogue framing. Perpendicular angle. 90&deg; rule automatic.</div>
+    </div>
+    <div class="cell">
+      <div class="lbl">CLOUD MODE</div>
+      <div class="txt lang-ru">Рантайм-AI автовыбирает лучшую из N камер. 6&ndash;16 камер на сцену, ручных склеек не нужно.</div>
+      <div class="txt lang-en">Runtime AI auto-selects best of N cameras. 6&ndash;16 cameras per scene, no manual cuts needed.</div>
+    </div>
+    <div class="cell">
+      <div class="lbl">MULTI-SUBJECT</div>
+      <div class="txt lang-ru">До 60 субъектов одновременно. Массовые сцены одним ригом.</div>
+      <div class="txt lang-en">Up to 60 subjects at once. Mass scenes with one rig.</div>
+    </div>
+    <div class="cell">
+      <div class="lbl">SHOT LIST</div>
+      <div class="txt lang-ru">Стэкаемые массивы камер, склейки по времени, рандомизация.</div>
+      <div class="txt lang-en">Stackable camera arrays, time-based cuts, randomization.</div>
+    </div>
+    <div class="cell">
+      <div class="lbl">VELOCITY LOOK AHEAD</div>
+      <div class="txt lang-ru">Камера предсказывает движение и ведёт действие. Кадры-упреждения.</div>
+      <div class="txt lang-en">Camera predicts motion and leads the action. Anticipation frames.</div>
+    </div>
+    <div class="cell">
+      <div class="lbl">DYNAMIC FOV</div>
+      <div class="txt lang-ru">Тонкие подстройки FOV для дыхания в крупных планах. 3&ndash;5% punch-in.</div>
+      <div class="txt lang-en">Subtle FOV adjustments for breathing in close-ups. 3&ndash;5% punch-in.</div>
+    </div>
+  </div>
+  </div>
+  <!-- /camera-block -->
+
+  <!-- Production outro video (moved here — pre-vis summary before client approval) -->
+  <div class="prod-outro">
+    <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/05-prod-outro.mp4" poster="assets/prod-posters/05-prod-outro.jpg"></video>
+    <p class="cap"><span class="lang-ru">ПРОДАКШН &middot; ФИНАЛЬНЫЙ КАДР СЛОЯ</span><span class="lang-en">PRODUCTION &middot; LAYER FINALE</span><span>05 / 05</span></p>
+  </div>
+
+  <!-- Gate 2 separator: end of 3D pre-vis, start of video generation -->
+  <div class="gate-separator">
+    <div class="mag-eyebrow lang-ru">GATE 2 &middot; PRE-VIS &rarr; ВИДЕО</div>
+    <div class="mag-eyebrow lang-en">GATE 2 &middot; PRE-VIS &rarr; VIDEO</div>
+    <h3 class="lang-ru">Согласование с заказчиком.</h3>
+    <h3 class="lang-en">Client Approval.</h3>
+  </div>
+
+  <div class="layer-gate">
+    <div class="gate-eyebrow">GATE 2</div>
+    <p class="lang-ru">Вы смотрите <em>pre-vis</em> &mdash; storyboard-кадры или отрендеренный pre-vis-ролик. Это финальная раскладка сцены перед генерацией видео. Если всё ок &mdash; стартует генерация через MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6. Если нужны правки &mdash; сцена возвращается в 3D или pre-vis пересобирается. Время на ревью &mdash; 5&ndash;10 минут.</p>
+    <p class="lang-en">You review the <em>pre-vis</em> &mdash; storyboard frames or a rendered pre-vis video. This is the final layout of the scene before video generation. If all is well &mdash; generation starts through MiniMax H3, SEEDANCE 2.0, VEO 3.1, KLING, WAN 2.6. If edits are needed &mdash; the scene goes back to 3D or the pre-vis is rebuilt. Review time &mdash; 5&ndash;10 minutes.</p>
+  </div>
+
+  <!-- На выходе из этого слоя -->
+  <div class="layer-callout">
+    <div class="callout-eyebrow lang-ru">НА ВЫХОДЕ ИЗ ЭТОГО СЛОЯ</div>
+    <div class="callout-eyebrow lang-en">OUTPUT OF THIS LAYER</div>
+    <h3 class="callout-title lang-ru">Pre-vis превращается в финальное видео.</h3>
+    <h3 class="callout-title lang-en">Pre-vis becomes the final video.</h3>
+    <p class="lang-ru">На этом этапе 3D-сцена превращается в финальное видео. Каждый pre-vis &mdash; покадровый или полноценный ролик &mdash; подаётся в одну из передовых моделей генерации: <em>MiniMax H3</em> как основной движок для визуальной консистентности, <em>SEEDANCE 2.0</em> для сложного движения камеры и персонажей, <em>VEO 3.1</em> для кинематографической картинки с тонкой работой света, <em>KLING</em> для лицевой анимации и мимики, <em>WAN 2.6</em> для длинных сцен с плавным переходом между кадрами. Каждая модель выбирается под задачу сцены; иногда собирается гибрид &mdash; несколько моделей на одну последовательность, чтобы взять лучшее от каждой.</p>
+    <p class="lang-en">At this stage, the 3D scene becomes the final video. Each pre-vis &mdash; frame-by-frame or a full pre-vis video &mdash; is fed into one of the advanced generation models: <em>MiniMax H3</em> as the primary engine for visual consistency, <em>SEEDANCE 2.0</em> for complex camera and character motion, <em>VEO 3.1</em> for cinematic look with fine light work, <em>KLING</em> for facial animation and expression, <em>WAN 2.6</em> for long scenes with smooth transitions between frames. Each model is chosen for the scene's task; sometimes a hybrid is assembled &mdash; several models on one sequence, to take the best from each.</p>
+    <p class="lang-ru">Видео здесь не угадывается нейросетью с нуля. Видео строится поверх уже просчитанной 3D-сцены, в которой зафиксированы все объекты, их координаты, свойства материалов и поведение физики. Именно поэтому генерация держит ту же геометрию, тот же свет, ту же текстовую информацию, что были в pre-vis&rsquo;е. Никакого дрейфа между кадрами, никаких внезапных изменений лиц или логотипов &mdash; каждый объект остаётся на своём месте от первого до последнего кадра, независимо от длительности ролика.</p>
+    <p class="lang-en">The video here is not &laquo;guessed&raquo; by the AI from scratch. The video is built on top of an already calculated 3D scene, in which all objects, their coordinates, material properties, and physics behavior are fixed. This is why the generation holds the same geometry, the same light, the same text information that was in the pre-vis. No drift between frames, no sudden changes to faces or logos &mdash; every object stays in its place from the first frame to the last, regardless of the piece's duration.</p>
+    <p class="lang-ru">Для каждой сцены формируется полноценная инструкция &mdash; не просто промпт в одно предложение, а развёрнутое техническое задание для модели. В инструкцию подгружаются все артефакты, которые вышли из слоя Pre-production: описание мира, библия проекта, режиссёрский сценарий, character sheet&rsquo;ы персонажей, раскадровка, мизансцены, референсы настроения. Модель получает полный контекст &mdash; работает с уже зафиксированной режиссёрской волей, а не догадывается о мире. На выходе &mdash; кадр, который попадает в общее визуальное высказывание проекта.</p>
+    <p class="lang-en">A full instruction is formed for each scene &mdash; not just a single-sentence prompt, but an expanded technical brief for the model. All artifacts that came from the Pre-production layer are loaded into the instruction: world description, project bible, director&rsquo;s scenario, character sheets, storyboard, mise-en-sc&egrave;ne, mood references. The model receives the full context &mdash; it works with the already fixed directorial will, not guessing about the world. The output is a frame that fits into the overall visual statement of the project.</p>
+    <p class="lang-ru">Workflow выстраивается через <em>MiniMax Design</em> &mdash; профессиональную среду для построения и запуска генерации. В ней удобно компоновать сцены, управлять версиями, отслеживать историю запусков, сопоставлять результаты с pre-vis&rsquo;ом, запускать апскейл, ретайминг, стилизацию отдельных проходов и A/B-тесты моделей &mdash; всё в одном интерфейсе, без переключения между инструментами.</p>
+    <p class="lang-en">The workflow is built through <em>MiniMax Design</em> &mdash; a professional environment for composing and launching generation. In it, you can compose scenes, manage versions, track launch history, compare results against the pre-vis, run upscaling, retiming, stylization of individual passes, and A/B model tests &mdash; all in one interface, without switching between tools.</p>
+    <p class="lang-ru">Закладывается единая цветовая модель на весь проект: палитра, контраст, тональные акценты задаются один раз &mdash; и каждая сцена наследует их автоматически. Это значит, что при склейке кадров из разных запусков нет цветовых разрывов, нет &laquo;грязных&raquo; переходов между сценами &mdash; ролик выглядит цельно, как снятый одной камерой за один день. Reference-кадры из pre-vis используются как визуальный якорь для каждой генерации, seed-значения фиксируются для воспроизводимости результатов, A/B-тесты позволяют выбрать лучший из нескольких вариантов без пересборки всей сцены.</p>
+    <p class="lang-en">A unified color model is laid down for the entire project: palette, contrast, tonal accents are set once &mdash; and each scene inherits them automatically. This means that when splicing frames from different runs, there are no color breaks, no &ldquo;dirty&rdquo; transitions between scenes &mdash; the piece looks cohesive, as if shot by one camera in one day. Reference frames from the pre-vis are used as a visual anchor for each generation, seed values are fixed for reproducibility, A/B tests let you pick the best of several options without rebuilding the entire scene.</p>
+  </div>
+</article>
+
+<!-- LAYER III — POST-PRODUCTION -->
+<article class="layer" id="post">
+  <div class="layer-head">
+    <div class="layer-num">III</div>
+    <div class="layer-info">
+      <div class="eyebrow lang-ru">СЛОЙ III &middot; 03 / 03 &middot; ПОСТ&shy;ПРОДАКШН</div>
+      <div class="eyebrow lang-en">LAYER III &middot; 03 / 03 &middot; POST&shy;-PRODUCTION</div>
+      <h2 class="lang-ru">Полировка, цвет, дыхание.</h2>
+      <h2 class="lang-en">Polish, color, breath.</h2>
+      <p class="lede lang-ru">Здесь готовые клипы из Продакшна собираются в монтаж, накладывается голос и музыка, делается липсинк, цветовой грейд и финальная доводка. Нейросети здесь работают для генерации звука и голоса &mdash; <em>MiniMax Audio Speech 2.5</em> для озвучки, <em>MiniMax Audio Music</em> для саундтрека, <em>Epidemic Sound</em> для подбора звуковых эффектов, <em>Sync Labs</em> для липсинка с суб-кадровой точностью. Три стадии до финального файла.</p>
+      <p class="lede lang-en">Here the ready clips from Production are assembled into the cut, voice and music are layered in, lip-sync, color grade, and final polish are applied. AI here works for sound and voice generation &mdash; <em>MiniMax Audio Speech 2.5</em> for voice, <em>MiniMax Audio Music</em> for soundtrack, <em>Epidemic Sound</em> for sound effects selection, <em>Sync Labs</em> for lip-sync with sub-frame precision. Three stages to the final file.</p>
+    </div>
+  </div>
+
+  <div class="layer-body">
+    <p class="lang-ru">Готовые клипы из Продакшна собираются в монтаж в DaVinci Resolve: склейки, фейды, переходы, согласование темпа между кусками. Цветокоррекция делается единым проходом на весь ролик &mdash; каждая сцена вписывается в общий тон, без цветовых разрывов на стыках. Тонкая работа с экспозицией, контрастом и насыщенностью доводит картинку до финального лоска.</p>
+    <p class="lang-en">Ready clips from Production are assembled into the cut in DaVinci Resolve: joins, fades, transitions, pace alignment between cuts. Color correction is done in a single pass across the whole piece &mdash; each scene fits into the overall tone, without color breaks at the joins. Fine work on exposure, contrast, and saturation brings the frame to its final polish.</p>
+    <p class="lang-ru"><em>Голос</em> генерируется или клонируется через <em>MiniMax Audio Speech 2.5</em> &mdash; с настройкой тембра, интонации, ритма речи. <em>Музыка</em> и атмосфера подбираются из <em>Epidemic Sound</em> &mdash; нейросетевая выборка треков и звуковых эффектов под настроение сцены: шумы, эмбиент, музыкальные слои. <em>Липсинк</em> &mdash; через <em>Sync Labs</em> с суб-кадровой точностью: речь синхронизируется с движением губ до отдельного кадра.</p>
+    <p class="lang-en"><em>Voice</em> is generated or cloned through <em>MiniMax Audio Speech 2.5</em> &mdash; with tuning for timbre, intonation, and speech rhythm. <em>Music</em> and atmosphere are selected from <em>Epidemic Sound</em> &mdash; AI-powered selection of tracks and sound effects for the scene&rsquo;s mood: noise, ambience, musical layers. <em>Lip-sync</em> &mdash; via <em>Sync Labs</em> with sub-frame precision: speech is synchronized with lip movement down to the individual frame.</p>
+  </div>
+
+  <div class="stages">
+    <div class="cell"><div class="num">01</div><div class="lbl lang-ru">МОНТАЖ &middot; СБОРКА</div><div class="lbl lang-en">ASSEMBLY</div></div>
+    <div class="cell"><div class="num">02</div><div class="lbl lang-ru">ЦВЕТОКОРРЕКЦИЯ &middot; GRADE</div><div class="lbl lang-en">COLOR CORRECTION &middot; GRADE</div></div>
+    <div class="cell"><div class="num">03</div><div class="lbl lang-ru">ГОЛОС &middot; ЛИПСИНК</div><div class="lbl lang-en">VOICE &middot; LIP-SYNC</div></div>
+    <div class="cell"><div class="num">04</div><div class="lbl lang-ru">МУЗЫКА &middot; SFX</div><div class="lbl lang-en">MUSIC &middot; SFX</div></div>
+  </div>
+</article>
+
+<!-- SECTION: SHOWCASE -->
+<section class="showcase" id="work">
   <div class="sec-eyebrow lang-ru">ВИТРИНА &middot; ОБРАЗЦЫ РАБОТ</div>
   <div class="sec-eyebrow lang-en">SHOWCASE &middot; WORK SAMPLES</div>
-  <h2 class="sec-title lang-ru">Что выходит из пайплайна.</h2>
-  <h2 class="sec-title lang-en">What the pipeline produces.</h2>
-  <p class="sec-sub lang-ru">Семь роликов, семь сценариев: UGC для бренда, кинематографичный экшн, анимация персонажа, спортивная динамика, арт-персонаж, ток-шоу. Каждый прошёл через весь 3-слойный пайплайн.</p>
-  <p class="sec-sub lang-en">Seven videos, seven scenarios: brand UGC, cinematic action, character animation, sports motion, art character, talk show. Each went through the full 3-layer pipeline.</p>
+  <h2 class="sec-title lang-ru">От UGC до sci-fi.</h2>
+  <h2 class="sec-title lang-en">From UGC to sci-fi.</h2>
+  <p class="sec-sub lang-ru">Content Factory &mdash; это реализация каждого этапа производства на профессиональном уровне. Видеоконтент создаётся в любом жанре и под любую задачу &mdash; от UGC-ролика до кинематографического экшна. Единый визуальный язык, консистентные персонажи, профессиональный саунд-дизайн. Каждый проект выходит как законченный продукт с собственным лицом.</p>
+  <p class="sec-sub lang-en">Content Factory is the professional-grade implementation of every stage of production. Video content is created in any genre and for any task &mdash; from a UGC ad to a cinematic action piece. A single visual language, consistent characters, professional sound design. Every project comes out as a finished product with its own face.</p>
 
   <div class="show-grid">
     <div class="show-tile show-tile--wide show-tile--16x9">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/Falling_Into_the_Acid_Abyss-H.264-1080p.mp4" poster="assets/posters/poster-2-acid-abyss.jpg"></video>
-      <div class="cap"><span class="l lang-ru">КИНЕМАТОГРАФ &middot; ЭКШН</span><span class="l lang-en">CINEMATIC &middot; ACTION</span><span class="r">ACID ABYSS</span></div>
-      <div class="static-cap lang-ru">КИНЕМАТОГРАФ &middot; 16:9</div>
-      <div class="static-cap lang-en">CINEMATIC &middot; 16:9</div>
+      <div class="cap"><span class="r">ACID ABYSS</span></div>
+      <div class="static-cap">SCI-FI</div>
     </div>
     <div class="show-tile show-tile--wide show-tile--16x9">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/dogs-podcast-video-test-e275eae3-1080p.mp4" poster="assets/posters/poster-6-podcast.jpg"></video>
-      <div class="cap"><span class="l lang-ru">TOK-ШОУ &middot; ЛИПСИНК</span><span class="l lang-en">TALK SHOW &middot; LIP-SYNC</span><span class="r">PODCAST</span></div>
-      <div class="static-cap lang-ru">TOK-ШОУ &middot; 16:9</div>
-      <div class="static-cap lang-en">TALK SHOW &middot; 16:9</div>
+      <div class="cap"><span class="r">DOGS PODCAST</span></div>
+      <div class="static-cap">TALK SHOW</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/AllodyJewelry-UGC-Test-1080p.mp4" poster="assets/posters/poster-1-allody.jpg"></video>
-      <div class="cap"><span class="l lang-ru">UGC &middot; ПРОДУКТ</span><span class="l lang-en">UGC &middot; PRODUCT</span><span class="r">ALLODY</span></div>
-      <div class="static-cap lang-ru">UGC &middot; 9:16</div>
-      <div class="static-cap lang-en">UGC &middot; 9:16</div>
+      <div class="cap"><span class="r">ALLODY</span></div>
+      <div class="static-cap">UGC</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/GongFu-Teapot-Test-2_0_052026-1080p.mp4" poster="assets/posters/poster-3-gongfu.jpg"></video>
-      <div class="cap"><span class="l lang-ru">АНИМАЦИЯ ПЕРСОНАЖА</span><span class="l lang-en">CHARACTER ANIMATION</span><span class="r">GONGFU</span></div>
-      <div class="static-cap lang-ru">АНИМАЦИЯ &middot; 9:16</div>
-      <div class="static-cap lang-en">ANIMATION &middot; 9:16</div>
+      <div class="cap"><span class="r">GONGFU</span></div>
+      <div class="static-cap lang-ru">РЕКЛАМА</div>
+      <div class="static-cap lang-en">COMMERCIAL</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/SOCCER-GAME-008-1080p.mp4" poster="assets/posters/poster-4-soccer.jpg"></video>
-      <div class="cap"><span class="l lang-ru">СПОРТ &middot; ДИНАМИКА</span><span class="l lang-en">SPORTS &middot; MOTION</span><span class="r">SOCCER</span></div>
-      <div class="static-cap lang-ru">СПОРТ &middot; 9:16</div>
-      <div class="static-cap lang-en">SPORTS &middot; 9:16</div>
+      <div class="cap"><span class="r">BUSINESS COACH</span></div>
+      <div class="static-cap">ED TECH</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
       <video autoplay loop muted playsinline preload="metadata" src="assets/videos/Vois-Masks-Rainbow-Test-1080p.mp4" poster="assets/posters/poster-5-vois.jpg"></video>
-      <div class="cap"><span class="l lang-ru">АРТ &middot; ПЕРСОНАЖ</span><span class="l lang-en">ART &middot; CHARACTER</span><span class="r">VOIS</span></div>
-      <div class="static-cap lang-ru">АРТ-СТИЛЬ &middot; 9:16</div>
-      <div class="static-cap lang-en">ART STYLE &middot; 9:16</div>
+      <div class="cap"><span class="r">VOIS</span></div>
+      <div class="static-cap lang-ru">АРТ-СТИЛЬ</div>
+      <div class="static-cap lang-en">ART STYLE</div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4: STACK -->
+<!-- STACK -->
 <section class="stack">
   <div class="sec-eyebrow lang-ru">СТЕК &middot; ПОЛНЫЙ КОНВЕЙЕР</div>
   <div class="sec-eyebrow lang-en">STACK &middot; FULL PIPELINE</div>
-  <h2 class="sec-title lang-ru">Что используем в каждом слое.</h2>
-  <h2 class="sec-title lang-en">What runs each layer.</h2>
+  <h2 class="sec-title lang-ru">Что используется в каждом слое.</h2>
+  <h2 class="sec-title lang-en">What is used in each layer.</h2>
 
   <div class="stack-grid">
     <div class="stack-col">
       <h4 class="lang-ru">ПРЕ&shy;ПРОДАКШН</h4>
       <h4 class="lang-en">PRE&shy;-PRODUCTION</h4>
       <ul>
-        <li><strong>Canon KB</strong> <span class="lang-ru">&middot; 11 файлов / 140 КБ</span><span class="lang-en">&middot; 11 files / 140 KB</span></li>
-        <li><strong>Cinematography corpus</strong> <span class="lang-ru">&middot; 102 файла</span><span class="lang-en">&middot; 102 files</span></li>
-        <li><strong>Pre-prod knowledge</strong> <span class="lang-ru">&middot; 60+ файлов</span><span class="lang-en">&middot; 60+ files</span></li>
+        <li><strong>Canon KB</strong> <span class="lang-ru">&middot; 83 тома · ~400 страниц структурированной базы</span><span class="lang-en">&middot; 83 volumes · ~400 pages of structured canon</span></li>
+        <li><strong>Cinematography corpus</strong> <span class="lang-ru">&middot; 102 тома · визуальный язык, свет, монтаж, операторская работа</span><span class="lang-en">&middot; 102 volumes · visual language, light, editing, cinematography</span></li>
+        <li><strong>Pre-prod knowledge</strong> <span class="lang-ru">&middot; сценарная разработка · каст · локации · мизансцена</span><span class="lang-en">&middot; script · cast · locations · mise-en-sc&egrave;ne</span></li>
         <li><strong>Random axes pool</strong> <span class="lang-ru">&middot; 500 записей</span><span class="lang-en">&middot; 500 entries</span></li>
-        <li><strong>Skills</strong> <span class="lang-ru">&middot; ~14 (скрипт, каст, локация, персонаж, мизансцена, шот-план, анимация, диалоги)</span><span class="lang-en">&middot; ~14 (script, cast, location, character, mise-en-sc&egrave;ne, shot plan, animation, dialogue)</span></li>
+        <li><strong>Skills</strong> <span class="lang-ru">&middot; 28 специализированных (скрипт, каст, локация, персонаж, мизансцена, шот-план, анимация, диалоги)</span><span class="lang-en">&middot; 28 specialized (script, cast, location, character, mise-en-sc&egrave;ne, shot plan, animation, dialogue)</span></li>
       </ul>
     </div>
     <div class="stack-col">
@@ -391,24 +840,20 @@
       <h4 class="lang-en">PRODUCTION</h4>
       <ul>
         <li><strong>Unreal Engine 5.8</strong> <span class="lang-ru">&middot; World Partition, Lumen, Nanite</span><span class="lang-en">&middot; World Partition, Lumen, Nanite</span></li>
-        <li><strong>Nwiro IK 224 MCP</strong> <span class="lang-ru">&middot; ландшафт, фолиаж, PCG</span><span class="lang-en">&middot; landscape, foliage, PCG</span></li>
-        <li><strong>Native UE 830</strong> <span class="lang-ru">&middot; Toolset Registry</span><span class="lang-en">&middot; Toolset Registry</span></li>
-        <li><strong>Black Eye</strong> <span class="lang-ru">&middot; 3-4 камеры на сцену</span><span class="lang-en">&middot; 3-4 cameras per scene</span></li>
-        <li><strong>Sony Venice + PRO Filmbacks</strong> <span class="lang-ru">&middot; реальные кино-сенсоры</span><span class="lang-en">&middot; real cinema sensors</span></li>
-        <li><strong>Spline Architect + Y-Bot + Mixamo</strong> <span class="lang-ru">&middot; траектории + риги</span><span class="lang-en">&middot; trajectories + rigs</span></li>
-        <li><strong>Quixel Megascans</strong> <span class="lang-ru">&middot; фотореалистичные ассеты</span><span class="lang-en">&middot; photoreal assets</span></li>
+        <li><strong>Multi-cam rigs</strong> <span class="lang-ru">&middot; до 6 камер на сцену, процедурные риги</span><span class="lang-en">&middot; up to 6 cameras per scene, procedural rigs</span></li>
+        <li><strong>Real-cinema sensors</strong> <span class="lang-ru">&middot; Sony Venice 2 + PRO Filmbacks</span><span class="lang-en">&middot; Sony Venice 2 + PRO Filmbacks</span></li>
+        <li><strong>Y-Bot + Mixamo</strong> <span class="lang-ru">&middot; humanoid база + MoCap-библиотека</span><span class="lang-en">&middot; humanoid base + MoCap library</span></li>
+        <li><strong>MiniMax H3 + Veo 3.1 + Seedance 2.0 + Kling + Wan 2.6</strong> <span class="lang-ru">&middot; модели генерации финального видео</span><span class="lang-en">&middot; final video generation models</span></li>
       </ul>
     </div>
     <div class="stack-col">
       <h4 class="lang-ru">ПОСТ&shy;ПРОДАКШН</h4>
       <h4 class="lang-en">POST&shy;-PRODUCTION</h4>
       <ul>
-        <li><strong>Hailuo H3</strong> <span class="lang-ru">&middot; 9 изобр. + 3 видео + 3 аудио в одном запросе</span><span class="lang-en">&middot; 9 img + 3 vid + 3 aud in one request</span></li>
-        <li><strong>Veo 3.1 / Sora 2 / Seedance 2.0</strong> <span class="lang-ru">&middot; альтернативы по шотам</span><span class="lang-en">&middot; alternatives per shot</span></li>
+        <li><strong>DaVinci Resolve</strong> <span class="lang-ru">&middot; монтаж, цвет, микс</span><span class="lang-en">&middot; edit, color, mix</span></li>
         <li><strong>MiniMax Audio Speech 2.5</strong> <span class="lang-ru">&middot; TTS + клонирование</span><span class="lang-en">&middot; TTS + cloning</span></li>
         <li><strong>Sync Labs</strong> <span class="lang-ru">&middot; суб-кадровый липсинк</span><span class="lang-en">&middot; sub-frame lip-sync</span></li>
         <li><strong>Epidemic Sound</strong> <span class="lang-ru">&middot; авто-подбор музыки</span><span class="lang-en">&middot; automated music bed</span></li>
-        <li><strong>DaVinci Resolve</strong> <span class="lang-ru">&middot; монтаж, цвет, микс</span><span class="lang-en">&middot; edit, color, mix</span></li>
         <li><strong>After Effects + Photoshop</strong> <span class="lang-ru">&middot; VFX (поддержка)</span><span class="lang-en">&middot; VFX (support)</span></li>
       </ul>
     </div>
@@ -416,13 +861,12 @@
       <h4 class="lang-ru">МАСШТАБ</h4>
       <h4 class="lang-en">SCALE</h4>
       <ul>
-        <li><strong>14</strong> <span class="lang-ru">стадий</span><span class="lang-en">stages</span></li>
-        <li><strong>3</strong> <span class="lang-ru">гейта (клиент + оператор + клиент)</span><span class="lang-en">gates (client + operator + client)</span></li>
-        <li><strong>1054</strong> <span class="lang-ru">MCP-тулзов</span><span class="lang-en">MCP tools</span></li>
-        <li><strong>240 КБ</strong> <span class="lang-ru">база знаний (Canon + Cinema + Pre-prod)</span><span class="lang-en">knowledge base (Canon + Cinema + Pre-prod)</span></li>
-        <li><strong>~50</strong> <span class="lang-ru">специализированных скиллов</span><span class="lang-en">specialist skills</span></li>
-        <li><strong>9:16 · 16:9 · 21:9</strong> <span class="lang-ru">на выходе</span><span class="lang-en">output formats</span></li>
-        <li><strong>1</strong> <span class="lang-ru">оператор</span><span class="lang-en">operator</span></li>
+        <li><strong>13</strong> <span class="lang-ru">стадий</span><span class="lang-en">stages</span></li>
+        <li><strong>3</strong> <span class="lang-ru">гейта (заказчик + продюсер + заказчик)</span><span class="lang-en">gates (client + producer + client)</span></li>
+        <li><strong>6</strong> <span class="lang-ru">камер на сцену одновременно</span><span class="lang-en">cams per scene simultaneously</span></li>
+        <li><strong>28</strong> <span class="lang-ru">специализированных скиллов</span><span class="lang-en">specialist skills</span></li>
+        <li><strong>Любой формат</strong> <span class="lang-ru">под любые площадки</span><span class="lang-en">for any platform</span></li>
+        <li><strong>1</strong> <span class="lang-ru">продюсер</span><span class="lang-en">producer</span></li>
       </ul>
     </div>
   </div>
@@ -433,8 +877,8 @@
   <div class="name lang-ru">Антон Бычковский</div>
   <div class="name lang-en">Anton Bychkovsky</div>
   <div class="info">
-    <span class="lang-ru">Соло-оператор &middot; AI Video Production</span>
-    <span class="lang-en">Solo Operator &middot; AI Video Production</span><br>
+    <span class="lang-ru">Контент-продюсер &middot; AI Video Production</span>
+    <span class="lang-en">Content Producer &middot; AI Video Production</span><br>
     <a href="mailto:bychkovskii.ap@yandex.ru">bychkovskii.ap@yandex.ru</a> &nbsp;&middot;&nbsp; <a href="mailto:bychkovskii.ap@gmail.com">bychkovskii.ap@gmail.com</a><br>
     <span class="lang-ru">Ставрополь / удалённо &middot; 2026</span>
     <span class="lang-en">Stavropol / Remote &middot; 2026</span>
@@ -449,7 +893,7 @@
   function setLang(lang) {
     body.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', lang === 'ru' ? 'ru' : 'en');
-    var title = lang === 'ru' ? 'Антон Бычковский — AI Video Production' : 'Anton Bychkovsky — AI Video Production';
+    var title = 'CONTENT-FACTORY — The pipeline';
     document.title = title;
     buttons.forEach(function(b) {
       if (b.getAttribute('data-set') === lang) b.classList.add('active');
@@ -459,7 +903,6 @@
   buttons.forEach(function(b) {
     b.addEventListener('click', function() { setLang(b.getAttribute('data-set')); });
   });
-  // initial state from <body data-lang="ru">
 })();
 </script>
 
