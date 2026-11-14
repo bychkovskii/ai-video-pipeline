@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>CONTENT FACTORY — The pipeline</title>
@@ -171,7 +171,7 @@
 
   /* Production video blocks */
   .prod-hero { position: relative; margin: 0 0 56px; }
-  .prod-hero video { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
+  .prod-hero img { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
   .prod-hero .frame { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 32px; }
   .prod-hero .frame .lbl { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
   .prod-hero .frame h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(36px, 5vw, 72px); line-height: 0.95; color: var(--ink); }
@@ -179,7 +179,7 @@
 
   .cam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 40px 0 0; }
   .cam-grid .cam { position: relative; }
-  .cam-grid video { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .cam-grid img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .cam-grid .cam-cap { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; display: flex; justify-content: space-between; padding-top: 6px; border-top: 1px solid var(--rule-2); }
 
   .cam-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule-2); margin: 32px 0 0; }
@@ -190,7 +190,7 @@
   .cam-specs .txt { font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
 
   .prod-outro { position: relative; margin: 56px 0 0; }
-  .prod-outro video { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
+  .prod-outro img { width: 100%; aspect-ratio: 24/10; object-fit: cover; }
   .prod-outro .cap { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px solid var(--rule-2); }
 
   /* Section header (generic) */
@@ -205,10 +205,10 @@
   .show-tile { position: relative; cursor: pointer; overflow: hidden; }
   .show-tile--wide { grid-column: span 2; }
   .show-tile--vert { grid-column: span 1; }
-  .show-tile--16x9 video { aspect-ratio: 16/9; }
-  .show-tile--9x16 video { aspect-ratio: 9/16; }
-  .show-tile video { width: 100%; object-fit: cover; transition: transform 0.4s ease; }
-  .show-tile:hover video { transform: scale(1.03); }
+  .show-tile--16x9 img { aspect-ratio: 16/9; }
+  .show-tile--9x16 img { aspect-ratio: 9/16; }
+  .show-tile img { width: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .show-tile:hover img { transform: scale(1.03); }
   .show-tile .cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); display: flex; justify-content: space-between; align-items: end; opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.25s ease; }
   .show-tile:hover .cap { opacity: 1; transform: translateY(0); }
   .show-tile .cap .l { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); }
@@ -268,7 +268,7 @@
     footer { flex-direction: column; align-items: start; padding: 40px 20px 32px; }
     footer .info { text-align: left; }
     .lang-switch { top: 12px; right: 16px; }
-    .prod-hero video, .prod-outro video { aspect-ratio: 16/9; }
+    .prod-hero img, .prod-outro img { aspect-ratio: 16/9; }
     .layer-callout { padding: 28px 24px; }
     .layer-body .step { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
     .layer-body .step-num { padding-top: 0; }
@@ -295,6 +295,7 @@
     <a href="#prod"><span class="lang-ru">СЛОЙ II</span><span class="lang-en">LAYER II</span></a>
     <a href="#post"><span class="lang-ru">СЛОЙ III</span><span class="lang-en">LAYER III</span></a>
     <a href="#work"><span class="lang-ru">ВИТРИНА</span><span class="lang-en">WORK</span></a>
+    <a href="https://kinescope.io/pl/kzwEfyqcy2KRuadWgr1bg3" target="_blank" rel="noopener"><span class="lang-ru">ШОУРИЛ</span><span class="lang-en">REEL</span></a>
   </nav>
 </header>
 
@@ -579,7 +580,7 @@
 
   <!-- Production hero video: opening -->
   <div class="prod-hero">
-    <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/01-prod-opening.mp4" poster="assets/prod-posters/01-prod-opening.jpg"></video>
+    <img src="assets/prod-posters/01-prod-opening.jpg" alt="Opening frame of the production layer: 3D previs rendered into a final shot" loading="eager" fetchpriority="high" decoding="async">
     <div class="frame">
       <div class="lbl lang-ru">СЛОЙ II &middot; ПРОДАКШН &middot; ОТКРЫВАЮЩИЙ КАДР</div>
       <div class="lbl lang-en">LAYER II &middot; PRODUCTION &middot; OPENING FRAME</div>
@@ -661,15 +662,15 @@
 
     <div class="cam-grid">
       <div class="cam">
-        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/02-camera-night.mp4" poster="assets/prod-posters/02-camera-night.jpg"></video>
+        <img src="assets/prod-posters/02-camera-night.jpg" alt="Camera 01 — dynamic field of view, night street" loading="lazy" decoding="async">
         <div class="cam-cap"><span class="lang-ru">КАМЕРА 01 &middot; ДИНАМИЧЕСКИЙ FOV</span><span class="lang-en">CAM 01 &middot; DYNAMIC FOV</span><span>02 / 05</span></div>
       </div>
       <div class="cam">
-        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/03-camera-desert.mp4" poster="assets/prod-posters/03-camera-desert.jpg"></video>
+        <img src="assets/prod-posters/03-camera-desert.jpg" alt="Camera 02 — desert location, 16 cameras" loading="lazy" decoding="async">
         <div class="cam-cap"><span class="lang-ru">КАМЕРА 02 &middot; ПУСТЫНЯ &middot; 16 КАМЕР</span><span class="lang-en">CAM 02 &middot; DESERT &middot; 16 CAMS</span><span>03 / 05</span></div>
       </div>
       <div class="cam">
-        <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/04-camera-fov.mp4" poster="assets/prod-posters/04-camera-fov.jpg"></video>
+        <img src="assets/prod-posters/04-camera-fov.jpg" alt="Camera 03 — night drive, field of view test" loading="lazy" decoding="async">
         <div class="cam-cap"><span class="lang-ru">КАМЕРА 03 &middot; НОЧНОЙ ДРАЙВ</span><span class="lang-en">CAM 03 &middot; NIGHT DRIVE</span><span>04 / 05</span></div>
       </div>
     </div>
@@ -716,7 +717,7 @@
 
   <!-- Production outro video (moved here — pre-vis summary before client approval) -->
   <div class="prod-outro">
-    <video autoplay loop muted playsinline preload="metadata" src="assets/prod-videos/05-prod-outro.mp4" poster="assets/prod-posters/05-prod-outro.jpg"></video>
+    <img src="assets/prod-posters/05-prod-outro.jpg" alt="Final frame of the production layer" loading="lazy" decoding="async">
     <p class="cap"><span class="lang-ru">ПРОДАКШН &middot; ФИНАЛЬНЫЙ КАДР СЛОЯ</span><span class="lang-en">PRODUCTION &middot; LAYER FINALE</span><span>05 / 05</span></p>
   </div>
 
@@ -793,33 +794,33 @@
 
   <div class="show-grid">
     <div class="show-tile show-tile--wide show-tile--16x9">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/Falling_Into_the_Acid_Abyss-H.264-1080p.mp4" poster="assets/posters/poster-2-acid-abyss.jpg"></video>
+      <img src="assets/posters/poster-2-acid-abyss.jpg" alt="Acid Abyss — sci-fi shot" loading="lazy" decoding="async">
       <div class="cap"><span class="r">ACID ABYSS</span></div>
       <div class="static-cap">SCI-FI</div>
     </div>
     <div class="show-tile show-tile--wide show-tile--16x9">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/dogs-podcast-video-test-e275eae3-1080p.mp4" poster="assets/posters/poster-6-podcast.jpg"></video>
+      <img src="assets/posters/poster-6-podcast.jpg" alt="Dogs podcast — talk show" loading="lazy" decoding="async">
       <div class="cap"><span class="r">DOGS PODCAST</span></div>
       <div class="static-cap">TALK SHOW</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/AllodyJewelry-UGC-Test-1080p.mp4" poster="assets/posters/poster-1-allody.jpg"></video>
+      <img src="assets/posters/poster-1-allody.jpg" alt="Allody jewelry — UGC" loading="lazy" decoding="async">
       <div class="cap"><span class="r">ALLODY</span></div>
       <div class="static-cap">UGC</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/GongFu-Teapot-Test-2_0_052026-1080p.mp4" poster="assets/posters/poster-3-gongfu.jpg"></video>
+      <img src="assets/posters/poster-3-gongfu.jpg" alt="Gongfu teapot — commercial" loading="lazy" decoding="async">
       <div class="cap"><span class="r">GONGFU</span></div>
       <div class="static-cap lang-ru">РЕКЛАМА</div>
       <div class="static-cap lang-en">COMMERCIAL</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/SOCCER-GAME-008-1080p.mp4" poster="assets/posters/poster-4-soccer.jpg"></video>
+      <img src="assets/posters/poster-4-soccer.jpg" alt="Soccer game — business coach, ed tech" loading="lazy" decoding="async">
       <div class="cap"><span class="r">BUSINESS COACH</span></div>
       <div class="static-cap">ED TECH</div>
     </div>
     <div class="show-tile show-tile--vert show-tile--9x16">
-      <video autoplay loop muted playsinline preload="metadata" src="assets/videos/Vois-Masks-Rainbow-Test-1080p.mp4" poster="assets/posters/poster-5-vois.jpg"></video>
+      <img src="assets/posters/poster-5-vois.jpg" alt="Vois masks — art style" loading="lazy" decoding="async">
       <div class="cap"><span class="r">VOIS</span></div>
       <div class="static-cap lang-ru">АРТ-СТИЛЬ</div>
       <div class="static-cap lang-en">ART STYLE</div>
